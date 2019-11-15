@@ -8,6 +8,8 @@ public class SerialSeriesController {
 
 @GetMapping("/")
 public String Home() {
+	
+	
 	return null;
 }
 

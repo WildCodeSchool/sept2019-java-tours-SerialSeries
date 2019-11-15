@@ -7,9 +7,10 @@ import java.sql.SQLException;
 
 public class Database {
 
-	private final static String DB_URL = "jdbc:mysql://localhost:3306/dbname?serverTimezone=GMT";
-	private final static String DB_USER = "";
-	private final static String DB_PASSWORD = "";
+	private final static String DB_URL = "jdbc:mysql://localhost:3306/serialSeries?serverTimezone=GMT";
+	private final static String DB_USER = "serialSeries";
+	private final static String DB_PASSWORD = "wild4ever";
+	
 	private Connection connection;
 	private static Database instance;
 	

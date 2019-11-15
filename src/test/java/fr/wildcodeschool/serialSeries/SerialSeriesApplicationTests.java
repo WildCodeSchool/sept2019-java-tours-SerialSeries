@@ -18,15 +18,10 @@ class SerialSeriesApplicationTests {
 	@Test
 	void userCreator() {
 		UserRepository repository = new UserRepository();
-		User testUser = repository.createUser();
 		
-		repository.getUserById(testUser.getId());
 		
-		repository.getUsersByName(testUser.getUserName());
+		repository.getUsers();
 
-		repository.getFirstUserByName(testUser.getUserName());
-		
-		
 		
 
 	}
