@@ -48,8 +48,6 @@ public class UserRepository {
             statement.setString(2,pictures);
             statement.executeUpdate();
             
-            //User user = new User(resultSet);
-            
             return null;
         } catch (
                 SQLException e) {
