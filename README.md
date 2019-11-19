@@ -26,6 +26,7 @@ Java version 8 or higher
 # How to setup
 Connect on mysql as root:
 `mysql -u root -p`
+
 Create a user on mysql:
 `CREATE USER user_name@localhost IDENTIFIED BY user_password;`
 
