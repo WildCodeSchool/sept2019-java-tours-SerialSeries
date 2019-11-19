@@ -18,6 +18,6 @@ sudo apt-get install mysql
 Configur mysql
 
 Use the dump:
-`mysql -u root -p < dump.sql`
+`mysql -u root -p < dump.txt`
 
 Java version 8 or higher
