@@ -3,9 +3,14 @@ package fr.wildcodeschool.serialSeries.entity;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+
 public class User {
 	private int id;
+
 	private String userName;
+
 	private String pictures;
 
 	 	

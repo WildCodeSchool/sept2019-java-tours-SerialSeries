@@ -9,8 +9,8 @@
 <body>
 
 <form action="#" th:action="@{/users}" th:object="${user}" method="post">
-	<input type="text" th:field="*{userName}" placeholder="Entrez un nom"/>
-	<input type="text" th:field="*{pictures}" placeholder="Entrez une url pour votre image"/>
+	<input type="text" th:field="*{userName}" placeholder="Entrez un nom" required/>
+	<input type="text" th:field="*{pictures}" placeholder="Entrez une url pour votre image" required/>
 	<input type="submit" value="Valider">
 </form>
 	<ul>

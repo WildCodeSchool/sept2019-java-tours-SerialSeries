@@ -4,25 +4,25 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class Serie {
-	private String title;
+	private String titre;
 	private int season;
 	private int episode;
 	
 	
-	public Serie(String title, int season, int episode) {
-		this.title = title;
+	public Serie(String titre, int season, int episode) {
+		this.titre = titre;
 		this.season = season;
 		this.episode = episode;
 	}
 
 	public Serie(ResultSet resultSet) throws SQLException{
-		this.title = resultSet.getString("title");
-		this.season = resultSet.getInt("season");
+		this.titre = resultSet.getString("titre");
+		this.season = resultSet.getInt("nb_season");
 		this.episode = resultSet.getInt("episode");
 	}
 
-	public String getTitle() {
-		return this.title;
+	public String getTitre() {
+		return this.titre;
 	}
 
 
@@ -36,8 +36,8 @@ public class Serie {
 	}
 
 
-	public void setTitle(String title) {
-		this.title = title;
+	public void setTitre(String titre) {
+		this.titre = titre;
 	}
 
 
