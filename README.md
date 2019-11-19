@@ -11,8 +11,13 @@ Each user insert every series he watched or want to watch.
 
 # How to install
 Installer mysql:
-`shell
+`
 sudo apt-get install mysql
 `
 
+Configurer mysql
+
+utiliser le dump de la base de données:
+`
+mysql -u root -p < dump.sql
 
