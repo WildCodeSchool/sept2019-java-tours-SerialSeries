@@ -15,9 +15,23 @@ Install mysql:
 sudo apt-get install mysql
 `
 
-Configur mysql
+Setup mysql
 
 Use the dump:
-`mysql -u root -p < dump.txt`
+`mysql -u root -p < dump.sql`
 
 Java version 8 or higher
+
+
+# How to setup
+Connect on mysql as root:
+`mysql -u root -p`
+Create a user on mysql:
+`CREATE USER user_name@localhost IDENTIFIED BY user_password;`
+
+Give the user all grants:
+`GRANT ALL ON serialSeries.* TO user_name@localhost;`
+
+Change the Database's file in the project (repository package) and insert your user_name and user_password
+
+Now you can use the application
