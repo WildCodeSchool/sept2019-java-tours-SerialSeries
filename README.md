@@ -17,7 +17,7 @@ sudo apt-get install mysql
 
 Configurer mysql
 
-utiliser le dump de la base de données:
-`
-mysql -u root -p < dump.sql
+Utiliser le dump de la base de données:
+`mysql -u root -p < dump.sql`
+
 
