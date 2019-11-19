@@ -11,4 +11,6 @@ Each user insert every series he watched or want to watch.
 
 # How to install
 Installer mysql:
-```sudo apt-get install mysql
+```shell
+sudo apt-get install mysql
+
