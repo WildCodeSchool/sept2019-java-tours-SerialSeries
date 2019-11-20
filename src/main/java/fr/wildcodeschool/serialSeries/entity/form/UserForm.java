@@ -1,0 +1,34 @@
+package fr.wildcodeschool.serialSeries.entity.form;
+
+import jdk.internal.jline.internal.Nullable;
+
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
+public class UserForm {
+
+    @Nullable
+    private String pictureUrl;
+
+    @NotNull
+    @Size(min = 3, max = 100)
+    private String userName;
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public String getPictureUrl() {
+        return pictureUrl;
+    }
+
+    public void setPictureUrl(String pictureUrl) {
+        this.pictureUrl = pictureUrl;
+    }
+
+
+}

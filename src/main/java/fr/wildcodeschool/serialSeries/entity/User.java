@@ -8,51 +8,37 @@ import javax.validation.constraints.NotNull;
 
 public class User {
 	private int id;
-
 	private String userName;
+	private String pictureUrl;
 
-	private String pictures;
-
-	 	
-	
-	public User(int id, String userName, String picture) {
-		this.id = id;
-		this.userName = userName;
-		this.pictures = picture;
-	}
-	
 	public User(ResultSet result) throws SQLException {
 		this.id = result.getInt("id");
 		this.userName = result.getString("name");
-		this.pictures = result.getString("pictures");
-	}
-
-	public User() {
-		// TODO Auto-generated constructor stub
+		this.pictureUrl = result.getString("pictures");
 	}
 
 	public int getId() {
-		return this.id;
-	}
-
-	public String getUserName() {
-		return this.userName;
-	}
-
-	public String getPictures() {
-		return this.pictures;
+		return id;
 	}
 
 	public void setId(int id) {
 		this.id = id;
 	}
 
+	public String getUserName() {
+		return userName;
+	}
+
 	public void setUserName(String userName) {
 		this.userName = userName;
 	}
 
-	public void setPictures(String pictures) {
-		this.pictures = pictures;
+	public String getPictureUrl() {
+		return pictureUrl;
+	}
+
+	public void setPictureUrl(String pictureUrl) {
+		this.pictureUrl = pictureUrl;
 	}
 
 }
