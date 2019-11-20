@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<body>
+<form action="#" th:action="@{/user}" th:object="${user}" method="post" th:fragment="userForm">
+	<input type="text" th:field="*{userName}" placeholder="Entrez un nom" required/>
+	<input type="text" th:field="*{pictures}" placeholder="Entrez une url pour votre image" required/>
+	<input type="submit" value="Valider">
+</form >
+</body>
+</html>

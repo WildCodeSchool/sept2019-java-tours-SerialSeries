@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<link th:href="@{/style.css}" rel="stylesheet">
+<meta charset="UTF-8">
+<title>Home</title>
+
+</head>
+<body>
+
+<h2>Formulaire d'ajout de serie</h2>
+<form th:replace="form/serieForm::serieForm">
+
+</form>
+	
+<h2>Formulaire d'ajout d'utilisateur</h2>	
+<form th:replace="form/userForm::userForm">
+	
+</form >
+
+
+	<ul>
+		<li th:each="user : ${users}">
+			<a th:href="@{/serie(id=${user.id})}"><img th:src="${user.pictures}"/></a><h3 th:text="${user.userName}"></h3>
+		</li>
+	</ul>
+	
+	<ul th:each="serie : ${series}">
+		<li th:text="|Titre: ${serie.titre}|"></li>
+		<li th:text="|Nombre de saison: ${serie.nb_season}|"></li>
+	</ul>
+</body>
+</html>
