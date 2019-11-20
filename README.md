@@ -11,27 +11,22 @@ Each user insert every series he watched or want to watch.
 
 # How to install
 Install mysql:
-`
-sudo apt-get install mysql
-`
+`sudo apt-get install mysql`
 
-Setup mysql
-
-Use the dump:
-`mysql -u root -p < dump.sql`
-
-Java version 8 or higher
-
-
-# How to setup
-Connect on mysql as root:
-`mysql -u root -p`
+## Setup mysql
+Create the database:
+`CREATE DATABASE serialSeries;`
 
 Create a user on mysql:
 `CREATE USER user_name@localhost IDENTIFIED BY user_password;`
 
 Give the user all grants:
-`GRANT ALL ON serialSeries.* TO user_name@localhost;`
+`GRANT ALL ON serialSeries.* TO user_name@localhost`
+
+Use the dump:
+`mysql -u user_name -D serialSeries -p < dump.sql`
+
+Java version 8 or higher
 
 Change the Database's file in the project (repository package) and insert your user_name and user_password
 
