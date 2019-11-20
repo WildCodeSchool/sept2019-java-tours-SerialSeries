@@ -78,7 +78,7 @@ INSERT INTO `Season` VALUES (1,1,1),(2,1,2);
 UNLOCK TABLES;
 
 --
--- Table structure for table `serie`
+-- Table structure for table `Serie`
 --
 
 DROP TABLE IF EXISTS `Serie`;
@@ -96,13 +96,13 @@ CREATE TABLE `Serie` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `serie`
+-- Dumping data for table `Serie`
 --
 
 LOCK TABLES `Serie` WRITE;
-/*!40000 ALTER TABLE `serie` DISABLE KEYS */;
+/*!40000 ALTER TABLE `Serie` DISABLE KEYS */;
 INSERT INTO `Serie` VALUES (1,'TWD',10,0),(2,'Teen Wolf',7,0),(3,'Chuck',5,0),(4,'test serie',6,0),(5,'test serie',6,0),(6,'TTT',5,3),(7,'test2',4,1),(8,'test2',4,1),(9,'Test2',21,1),(10,'Chuck',5,2),(11,'Chuck',5,2),(12,'Watchmen',1,2),(13,'Twd',3,1);
-/*!40000 ALTER TABLE `serie` ENABLE KEYS */;
+/*!40000 ALTER TABLE `Serie` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -110,7 +110,7 @@ UNLOCK TABLES;
 --
 
 DROP TABLE IF EXISTS `User`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET @saved_cs_client = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `User` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
