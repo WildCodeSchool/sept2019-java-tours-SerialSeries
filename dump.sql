@@ -34,10 +34,9 @@ CREATE TABLE `Episode` (
   KEY `user_id` (`user_id`),
   KEY `season_id` (`season_id`),
   KEY `serie_id` (`serie_id`),
-  CONSTRAINT `episode_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`),
-  CONSTRAINT `episode_ibfk_2` FOREIGN KEY (`season_id`) REFERENCES `season` (`id`),
-  CONSTRAINT `episode_ibfk_3` FOREIGN KEY (`serie_id`) REFERENCES `serie` (`id`),
-  CONSTRAINT `episode_ibfk_4` FOREIGN KEY (`serie_id`) REFERENCES `serie` (`id`)
+  CONSTRAINT `episode_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `User` (`id`),
+  CONSTRAINT `episode_ibfk_2` FOREIGN KEY (`season_id`) REFERENCES `Season` (`id`),
+  CONSTRAINT `episode_ibfk_3` FOREIGN KEY (`serie_id`) REFERENCES `Serie` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -64,7 +63,7 @@ CREATE TABLE `Season` (
   `number` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `serie_id` (`serie_id`),
-  CONSTRAINT `season_ibfk_1` FOREIGN KEY (`serie_id`) REFERENCES `serie` (`id`)
+  CONSTRAINT `season_ibfk_1` FOREIGN KEY (`serie_id`) REFERENCES `Serie` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -82,17 +81,17 @@ UNLOCK TABLES;
 -- Table structure for table `serie`
 --
 
-DROP TABLE IF EXISTS `serie`;
+DROP TABLE IF EXISTS `Serie`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `serie` (
+CREATE TABLE `Serie` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `titre` varchar(45) COLLATE utf8mb4_general_ci DEFAULT NULL,
   `nb_season` int(11) DEFAULT NULL,
   `user_id` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `user_id` (`user_id`),
-  CONSTRAINT `serie_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`)
+  CONSTRAINT `serie_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `User` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -100,9 +99,9 @@ CREATE TABLE `serie` (
 -- Dumping data for table `serie`
 --
 
-LOCK TABLES `serie` WRITE;
+LOCK TABLES `Serie` WRITE;
 /*!40000 ALTER TABLE `serie` DISABLE KEYS */;
-INSERT INTO `serie` VALUES (1,'TWD',10,0),(2,'Teen Wolf',7,0),(3,'Chuck',5,0),(4,'test serie',6,0),(5,'test serie',6,0),(6,'TTT',5,3),(7,'test2',4,1),(8,'test2',4,1),(9,'Test2',21,1),(10,'Chuck',5,2),(11,'Chuck',5,2),(12,'Watchmen',1,2),(13,'Twd',3,1);
+INSERT INTO `Serie` VALUES (1,'TWD',10,0),(2,'Teen Wolf',7,0),(3,'Chuck',5,0),(4,'test serie',6,0),(5,'test serie',6,0),(6,'TTT',5,3),(7,'test2',4,1),(8,'test2',4,1),(9,'Test2',21,1),(10,'Chuck',5,2),(11,'Chuck',5,2),(12,'Watchmen',1,2),(13,'Twd',3,1);
 /*!40000 ALTER TABLE `serie` ENABLE KEYS */;
 UNLOCK TABLES;
 
