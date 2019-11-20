@@ -24,7 +24,7 @@ Give the user all grants:
 `GRANT ALL ON serialSeries.* TO user_name@localhost`
 
 Use the dump:
-`mysql -u user_name -D serialSeries -p < dump.sql`
+`mysql -u user_name -p -D serialSeries < dump.sql`
 
 Java version 8 or higher
 
