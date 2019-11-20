@@ -18,7 +18,7 @@ public class UserRepository {
 	        Connection connection = Database.getInstance().getConnection();
 	        
             PreparedStatement statement = connection.prepareStatement(
-                    "SELECT * FROM user;"
+                    "SELECT * FROM User;"
             );
             
             ResultSet resultSet = statement.executeQuery();
@@ -41,7 +41,7 @@ public class UserRepository {
 	        Connection connection = Database.getInstance().getConnection();
 	        
             PreparedStatement statement = connection.prepareStatement(
-                    "INSERT INTO user(name,pictures) VALUES (?,?)"
+                    "INSERT INTO User(name,pictures) VALUES (?,?)"
             );
             
             statement.setString(1,name);
