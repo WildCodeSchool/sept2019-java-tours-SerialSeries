@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<link th:href="@{/style.css}" rel="stylesheet">
+<meta charset="UTF-8">
+<title>Users</title>
+</head>
+<body>
+
+<form action="#" th:action="@{/users}" th:object="${user}" method="post">
+	<input type="text" th:field="*{userName}" placeholder="Entrez un nom" required/>
+	<input type="text" th:field="*{pictures}" placeholder="Entrez une url pour votre image" required/>
+	<input type="submit" value="Valider">
+</form>
+	<ul>
+		<li th:each="user : ${users}">
+			<img th:src="${user.pictures}"/><h3 th:text="${user.userName}"></h3>
+		</li>
+	</ul>
+</body>
+</html>
