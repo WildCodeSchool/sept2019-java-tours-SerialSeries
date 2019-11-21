@@ -10,16 +10,29 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * All request used with the database on Season TABLE
+ */
 public class SeasonRepository {
-    public List<Season> getEpisodeByUserId(int id) {
+    private static SeasonRepository instance;
+
+    public static SeasonRepository getInstance() {
+        return instance == null ? new SeasonRepository(): instance;
+    }
+
+    /**
+     * This method get all Season of a User by serie_id from database
+     * @return List of serie of a user
+     */
+    public List<Season> getSeasonByUserId(int serie_id) {
         try {
             Connection connection = Database.getInstance().getConnection();
 
             PreparedStatement statement = connection.prepareStatement(
-                    "SELECT * FROM serie WHERE user_id=?"
+                    "SELECT * FROM Season WHERE serie_id=?"
             );
 
-            statement.setInt(1, id);
+            statement.setInt(1, serie_id);
             List<Season>  seasons = new ArrayList<Season>();
             ResultSet resultSet = statement.executeQuery();
             while (resultSet.next()){

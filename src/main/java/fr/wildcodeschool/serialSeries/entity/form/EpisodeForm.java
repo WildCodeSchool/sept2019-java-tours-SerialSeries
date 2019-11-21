@@ -4,6 +4,9 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+/**
+ *  This class is used as form model of Episode to send request on database
+ */
 public class EpisodeForm {
 
     @NotNull

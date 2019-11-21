@@ -6,6 +6,10 @@ import java.sql.SQLException;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
+
+/**
+ *  This class is used as database model of a User
+ */
 public class User {
 	private int id;
 	private String userName;

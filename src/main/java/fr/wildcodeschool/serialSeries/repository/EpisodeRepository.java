@@ -10,14 +10,26 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class EpisodeRepository {
 
+/**
+ * All request used with the database on Episode TABLE
+ */
+public class EpisodeRepository {
+    private static EpisodeRepository instance;
+
+    public static EpisodeRepository getInstance() {
+        return instance == null ? new EpisodeRepository(): instance;
+    }
+    /**
+     * This method get all Episode of a Season by season_id from database
+     * @return List of serie of a user
+     */
     public List<Episode> getEpisodeBySeasonId(int id) {
         try {
             Connection connection = Database.getInstance().getConnection();
 
             PreparedStatement statement = connection.prepareStatement(
-                    "SELECT * FROM episode WHERE season_id=?"
+                    "SELECT * FROM Episode WHERE season_id=?"
             );
 
             statement.setInt(1, id);

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www/thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <form action="#" th:action="@{/serie}" th:object="${serie}" method="post" th:fragment="serieForm">
+        <input type="text" th:field="*{title}" placeholder="Entrez un titre" required/>
+        <input type="number" th:field="*{nbSeason}" placeholder="Nombre de saison" min="1" required/>
+        <select th:field="*{userId}">
+            <option th:each= "useritem : ${users}" th:text="${useritem.userName}" th:value="${useritem.id}" >
+        </select>
+        <input type="submit" value="Valider">
+    </form>
+</body>
+</html>

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www/thymeleaf.org">
+
+<body>
+    <nav th:fragment="userList">
+        <div>
+            <img th:src="${currentUser.pictureUrl}"/><h3 th:text="${currentUser.userName}"></h3>
+        </div>
+        <ul style="display:none">
+            <li th:each="user : ${userList}">
+                <img th:src="${user.pictureUrl}"/><h3 th:text="${user.userName}"></h3>
+            </li>
+        </ul>
+    </nav>
+</body>
+</html>

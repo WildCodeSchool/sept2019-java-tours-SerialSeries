@@ -4,7 +4,9 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-
+/**
+ * This class is a singleton to manage database connection
+ */
 public class Database {
 
 	private final static String DB_URL = "jdbc:mysql://localhost:3306/serialSeries?serverTimezone=GMT";

@@ -3,6 +3,9 @@ package fr.wildcodeschool.serialSeries.entity;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+/**
+ *  This class is used as database model of an Episode
+ */
 public class Episode {
     private int id;
     private String title;
