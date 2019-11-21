@@ -21,6 +21,10 @@ public class User {
 		this.pictureUrl = result.getString("pictures");
 	}
 
+	public User() {
+		// TODO Auto-generated constructor stub
+	}
+
 	public int getId() {
 		return id;
 	}

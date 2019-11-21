@@ -4,14 +4,12 @@ img {
     height:90px;
     border: 2px solid #333333;
     object-fit: cover ;
+    color:black;
 }
-ul{
-	display: flex;
-	text-align: center;
+li{
+	list-style:none;
 }
-ul>li{
-	display:flex;
-	flex-direction:column;
-	justify-content:center;
-	align-item:center;
+
+.toSee{
+	display: none;
 }

@@ -29,7 +29,7 @@ public class EpisodeRepository {
             Connection connection = Database.getInstance().getConnection();
 
             PreparedStatement statement = connection.prepareStatement(
-                    "SELECT * FROM Episode WHERE season_id=?"
+                    "SELECT * FROM Episode WHERE season_id=? ORDER BY episode_numb"
             );
 
             statement.setInt(1, id);

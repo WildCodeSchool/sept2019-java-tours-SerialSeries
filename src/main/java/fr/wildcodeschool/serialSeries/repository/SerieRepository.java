@@ -29,7 +29,7 @@ public class SerieRepository {
             Connection connection = Database.getInstance().getConnection();
 
             PreparedStatement statement = connection.prepareStatement(
-                    "SELECT * FROM Serie WHERE user_id=?"
+                    "SELECT * FROM Serie WHERE user_id=? ORDER BY titre"
             );
 
             statement.setInt(1, id);

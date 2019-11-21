@@ -24,12 +24,12 @@ public class SeasonRepository {
      * This method get all Season of a User by serie_id from database
      * @return List of serie of a user
      */
-    public List<Season> getSeasonByUserId(int serie_id) {
+    public List<Season> getSeasonBySerieId(int serie_id) {
         try {
             Connection connection = Database.getInstance().getConnection();
 
             PreparedStatement statement = connection.prepareStatement(
-                    "SELECT * FROM Season WHERE serie_id=?"
+                    "SELECT * FROM Season WHERE serie_id=? ORDER BY number"
             );
 
             statement.setInt(1, serie_id);

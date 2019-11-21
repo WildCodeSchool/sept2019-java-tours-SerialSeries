@@ -1,9 +1,10 @@
 package fr.wildcodeschool.serialSeries.entity.form;
 
-import jdk.internal.jline.internal.Nullable;
 
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+
+import org.springframework.lang.Nullable;
 
 /**
  *  This class is used as form model of User to send request on database

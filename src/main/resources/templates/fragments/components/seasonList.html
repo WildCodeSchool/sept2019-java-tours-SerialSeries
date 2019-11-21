@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www/thymeleaf.org">
+
+<body>
+    <ul th:fragment="seasonList">
+        <li th:each="season : ${seasonList}" th:if="${serieId == season.seasonId}">
+        	<a th:text="|Season n° ${season.number}|"></a>
+        	<ul th:include="fragments/components/episodeList::episodeList">
+			</ul>
+        </li>
+    </ul>
+</body>
+</html>

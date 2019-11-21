@@ -3,6 +3,20 @@
 <body>
     <footer th:fragment="footer">
         Ceci est le footer
+        
+        <script>
+	  var season = document.getElementsByClassName("season");
+	  for (let e of season){
+		  e.addEventListener("click", ()=>{
+			  console.log(e.childNodes);
+
+			  for(let child of e.childNodes){
+				  console.log(child);
+			  }
+		  });
+	  }
+
+</script>
     </footer>
 </body>
 </html>

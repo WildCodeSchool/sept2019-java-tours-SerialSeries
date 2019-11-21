@@ -1,11 +1,21 @@
 package fr.wildcodeschool.serialSeries.controller;
 
 import fr.wildcodeschool.serialSeries.entity.form.UserForm;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import fr.wildcodeschool.serialSeries.entity.Episode;
+import fr.wildcodeschool.serialSeries.entity.Season;
+import fr.wildcodeschool.serialSeries.entity.Serie;
 import fr.wildcodeschool.serialSeries.entity.User;
+import fr.wildcodeschool.serialSeries.repository.EpisodeRepository;
+import fr.wildcodeschool.serialSeries.repository.SeasonRepository;
+import fr.wildcodeschool.serialSeries.repository.SerieRepository;
 import fr.wildcodeschool.serialSeries.repository.UserRepository;
 
 /**
@@ -15,13 +25,24 @@ import fr.wildcodeschool.serialSeries.repository.UserRepository;
 @RequestMapping("/user")
 public class UserController {
 
-    private UserRepository repository = new UserRepository();
 //This path handle display the user's list
     @GetMapping("/{id}")
     public String getAll(@PathVariable int id, Model model) {
         model.addAttribute("currentUser", UserRepository.getInstance().getUsersById(id));
         model.addAttribute("userList", UserRepository.getInstance().getUsers());
-        return "index";
+        
+        List<Serie> series = SerieRepository.getInstance().getSerieByUserId(id);
+        model.addAttribute("serieList", series);
+       
+        List<Season> seasons = new ArrayList<>();
+        series.forEach(serieX-> seasons.addAll(SeasonRepository.getInstance().getSeasonBySerieId(serieX.getId())));
+        model.addAttribute("seasonList", seasons);
+        
+        List<Episode> episodes = new ArrayList<>();
+        seasons.forEach(seasonX-> episodes.addAll(EpisodeRepository.getInstance().getEpisodeBySeasonId(seasonX.getId())));
+        model.addAttribute("episodeList",episodes);
+        
+        return "userProfile";
     }
 //This handle the user's creation
     @GetMapping("/create")
@@ -31,7 +52,7 @@ public class UserController {
     }
     @PostMapping("/create")
     public String createUser(@ModelAttribute UserForm userForm) {
-        repository.createUser(userForm.getUserName(), userForm.getPictureUrl());
+        UserRepository.getInstance().createUser(userForm.getUserName(), userForm.getPictureUrl());
         return "redirect:/";
     }
 

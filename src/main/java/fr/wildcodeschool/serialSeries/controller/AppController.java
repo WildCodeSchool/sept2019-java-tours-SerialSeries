@@ -1,5 +1,7 @@
 package fr.wildcodeschool.serialSeries.controller;
 
+import fr.wildcodeschool.serialSeries.entity.User;
+import fr.wildcodeschool.serialSeries.repository.SerieRepository;
 import fr.wildcodeschool.serialSeries.repository.UserRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,7 +16,8 @@ public class AppController {
 
     @GetMapping("/")
     public String index(Model model) {
-        model.addAttribute("currentUser", UserRepository.getInstance().getUsersById(1));
+        model.addAttribute("currentUser", new User());
+
         model.addAttribute("userList", UserRepository.getInstance().getUsers());
         return "index";
     }

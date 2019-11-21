@@ -3,12 +3,12 @@
 
 <body>
     <nav th:fragment="userList">
-        <div>
+        <div th:if="${currentUser.id!=0}">
             <img th:src="${currentUser.pictureUrl}"/><h3 th:text="${currentUser.userName}"></h3>
         </div>
-        <ul style="display:none">
-            <li th:each="user : ${userList}">
-                <img th:src="${user.pictureUrl}"/><h3 th:text="${user.userName}"></h3>
+        <ul>
+            <li th:each="user : ${userList}" th:if="${currentUser.id!=user.id}">
+                <a  th:href="@{'/user/'+${user.id}}"><img th:src="${user.pictureUrl}"/></a><h3 th:text="${user.userName}"></h3>
             </li>
         </ul>
     </nav>
