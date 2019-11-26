@@ -34,7 +34,7 @@ public class UserController {
     }
 
     @PostMapping("/{id}/season/{serieId}/create")
-    public String createUser(@PathVariable int serieId, @ModelAttribute SeasonForm seasonForm) {
+    public String createUser(@PathVariable int id,@PathVariable int serieId, @ModelAttribute SeasonForm seasonForm) {
         SeasonRepository.getInstance().createSeason(seasonForm.getNumber(), serieId);;
         return "redirect:/user/"+id;
     }
