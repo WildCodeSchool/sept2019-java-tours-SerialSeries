@@ -40,7 +40,7 @@ public class UserController {
     public String createEpisode(@PathVariable int id, @PathVariable int seasonId, @ModelAttribute EpisodeForm episodeForm) {
 
         EpisodeRepository.getInstance().createEpisode(episodeForm.getTitle(), id, episodeForm.getNumber(), false, seasonId, SeasonRepository.getInstance().getSeasonBySeasonId(seasonId).getSerieId());
-        return "redirect:/";
+        return "redirect:/user/" + id;
     }
 
     @GetMapping("/{id}/season/{serieId}/create")
