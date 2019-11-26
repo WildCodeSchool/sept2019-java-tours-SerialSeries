@@ -2,9 +2,14 @@
 <html lang="en" xmlns:th="http://www/thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
 </head>
 <body>
-
+	<form action="#" th:action="@{'/user/'+${currentUser.id} + '/season/create'}" th:object="${createdSeason}" method="post" th:fragment="seasonForm">
+        <input type="number" th:field="*{number}" placeholder="Nombre de saison" min="1" required/>
+        <select th:field="*{serieId}">
+            <option th:each= "serieitem : ${serieList}" th:text="${serieitem.title}" th:value="${serieitem.id}" >
+        </select>
+        <input type="submit" value="Valider">
+	</form>
 </body>
 </html>

@@ -5,6 +5,11 @@
     <title>Title</title>
 </head>
 <body>
-
+	<form action="#" th:action="@{'/user/'+${currentUser.id} + '/season/'+ ${currentSeason.id}+'/episode/create'}" th:object="${createdEpisode}" method="post" th:fragment="episodeForm">
+        <input type="number" th:field="*{number}" placeholder="Numero de l'episode" min="1" required/>
+        <input type="text" th:field="*{title}" placeholder="Titre de l'episode" min="1" required/>
+        
+        <input type="submit" value="Valider">
+	</form>
 </body>
 </html>

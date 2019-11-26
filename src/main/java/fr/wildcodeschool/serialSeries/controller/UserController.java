@@ -1,5 +1,8 @@
 package fr.wildcodeschool.serialSeries.controller;
 
+import fr.wildcodeschool.serialSeries.entity.form.EpisodeForm;
+import fr.wildcodeschool.serialSeries.entity.form.SeasonForm;
+import fr.wildcodeschool.serialSeries.entity.form.SerieForm;
 import fr.wildcodeschool.serialSeries.entity.form.UserForm;
 
 import java.util.ArrayList;
@@ -24,7 +27,53 @@ import fr.wildcodeschool.serialSeries.repository.UserRepository;
 @Controller
 @RequestMapping("/user")
 public class UserController {
-
+	
+	
+  	@GetMapping("/{id}/season/{seasonId}/episode/create")
+    public String createEpisode(@PathVariable int id, @PathVariable int seasonId, Model model) {
+        model.addAttribute("createdEpisode", new EpisodeForm());
+        model.addAttribute("currentUser", UserRepository.getInstance().getUsersById(id));
+        model.addAttribute("currentSeason", SeasonRepository.getInstance().getSeasonBySeasonId(seasonId));
+        return "episodeCreator";
+    }
+  	
+    @PostMapping("/{id}/season/{seasonId}/episode/create")
+    public String createEpisode(@PathVariable int id, @PathVariable int seasonId, @ModelAttribute EpisodeForm episodeForm) {
+    	
+        EpisodeRepository.getInstance().createEpisode(episodeForm.getTitle(), id, episodeForm.getNumber(), false, seasonId, SeasonRepository.getInstance().getSeasonBySeasonId(seasonId).getSerieId());
+        return "redirect:/";
+    }
+    
+    
+	
+  	@GetMapping("/{id}/season/create")
+    public String createSeason(@PathVariable int id, Model model) {
+        model.addAttribute("createdSeason", new SeasonForm());
+        model.addAttribute("currentUser", UserRepository.getInstance().getUsersById(id));
+        model.addAttribute("serieList", SerieRepository.getInstance().getSerieByUserId(id));
+        return "seasonCreator";
+    }
+  	
+    @PostMapping("/{id}/season/create")
+    public String createUser(@ModelAttribute SeasonForm seasonForm) {
+        SeasonRepository.getInstance().createSeason(seasonForm.getNumber(), seasonForm.getSerieId());;
+        return "redirect:/";
+    }
+    
+  	@GetMapping("/{id}/serie/create")
+    public String createSerie(@PathVariable int id, Model model) {
+        model.addAttribute("createdSerie", new SerieForm());
+        model.addAttribute("currentUser", UserRepository.getInstance().getUsersById(id));
+        model.addAttribute("serieList", SerieRepository.getInstance().getSerieByUserId(id));
+        return "serieCreator";
+    }
+  	
+    @PostMapping("/{id}/serie/create")
+    public String createSerie(@PathVariable int id, @ModelAttribute SerieForm serieForm) {
+        SerieRepository.getInstance().createSerie(serieForm.getTitle(), serieForm.getNbSeason(), id);
+        return "redirect:/";
+    }
+  	
 //This path handle display the user's list
     @GetMapping("/{id}")
     public String getAll(@PathVariable int id, Model model) {
@@ -50,6 +99,7 @@ public class UserController {
         model.addAttribute("createdUser", new UserForm());
         return "userCreator";
     }
+    
     @PostMapping("/create")
     public String createUser(@ModelAttribute UserForm userForm) {
         UserRepository.getInstance().createUser(userForm.getUserName(), userForm.getPictureUrl());

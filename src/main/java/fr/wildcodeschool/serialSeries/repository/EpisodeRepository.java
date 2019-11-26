@@ -44,4 +44,26 @@ public class EpisodeRepository {
         }
         return null;
     }
+    
+    public void createEpisode(String title, int userId, int number, boolean vue, int seasonId, int serieId) {
+		try {
+	        Connection connection = Database.getInstance().getConnection();
+
+            PreparedStatement statement = connection.prepareStatement(
+                    "INSERT INTO Episode(titre, user_id,episode_numb, vue, season_id,serie_id) VALUES (?,?,?,?,?, ?)"
+            );
+
+            statement.setString(1,title);
+            statement.setInt(2,userId);
+            statement.setInt(3,number);
+            statement.setBoolean(4,vue);
+            statement.setInt(5,seasonId);
+            statement.setInt(6,serieId);
+
+            statement.executeUpdate();
+		} catch (
+                SQLException e) {
+            e.printStackTrace();
+        }		
+	}
 }

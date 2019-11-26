@@ -1,15 +1,156 @@
-img {
-    border-radius:100%;
-    width:90px;
-    height:90px;
-    border: 2px solid #333333;
-    object-fit: cover ;
-    color:black;
+:root{
+	--bg-color: #222831;
+	--surface-color: #393e46;
+	--hoversurface-color: #1e242c;
+	--primary-color: #edea4c;
+	--secondary-color: #f2ef49;
+	--on-primary-color: white;
+	--on-secondary-color: black;
 }
-li{
+*{
 	list-style:none;
 }
+#en_tete h1{
+	margin:0;
+}
+.hide{
+	display: none 	!important;	
+}
+#en_tete
+{
+	padding: 0.2em;
+	position:relative;
+	display:flex;
+	width: 100%;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	background-color: white;
+	font-size: 3em;
+	overflow: scroll;
 
-.toSee{
+}
+
+#userList{
+	display:flex;
+	justify-content:flex-start;	
+    overflow: scroll;
+	width:100%;
+}
+#userList li{
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	flex-direction:column;
+	padding: 0 0.1em;
+}
+#en_tete #userListIcon{
+	position:absolute;
+	right: 0;
+    bottom: 0;
+    width:1em;
+    height:1em;
+    border: 3px solid black;
+    border-radius:50%;
+    background-color:var(--hoversurface-color);
+}
+
+#en_tete #currentUser	{
+		width:3em;
+	
+display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#en_tete #currentUser>div	{
+position: relative;
+	
+
+	}
+#en_tete h3{
+padding:0;
+margin:0;
+	}
+.logo_utilisateur
+{
+	border-radius: 50%;
+	height: 3em;
+    width: 3em;
+    object-fit: cover;
+}
+#content
+{
+	padding: 0 2em;
+	align-items: center;
+	justify-content: center;
+}
+#slider_serie
+{
+	display: flex;
+	flex-direction: row;
+	margin-top: 70px;
+	justify-content: center;
+	align-items: center;
+	height: 600px;
+}
+#cadre_nom_serie
+{
+	display: flex;
+	flex-direction: column;
+	margin-top: 90px;
+	align-items: center;
+	background-color: white;
+	width: 80%;
+	margin: auto;
+}
+.paragraphe_cadre
+{
+	font-size: 3em;
+}
+#bouton_ajout
+{
+	display: flex;
+	justify-content: center;
+
+	font-size: 3em;
+	background-color: var(--surface-color);
+	color: white;
+	width: 100%;
+}
+#cadre_nom_episode
+{
+	background-color: white;
+	width: 80%;
+	margin: auto;
+	height: 600px;
+	margin-top: 40px;
+
+}
+.nom_episode
+{
+	font-size: 3em;
+	list-style: none;
+	padding: 10px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+
+}    
+
+.nom_episode input
+{
+	height:2em;
+	width: 2em;
+
+}
+#image_serie_selectionnee
+{
 	display: none;
 }
+
+html
+{
+	background-color: var(--bg-color);
+}
+

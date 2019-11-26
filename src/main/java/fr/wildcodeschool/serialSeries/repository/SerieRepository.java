@@ -44,4 +44,23 @@ public class SerieRepository {
         }
         return null;
     }
+
+	public void createSerie(String title, int nbSeason, int userId) {
+		try {
+	        Connection connection = Database.getInstance().getConnection();
+
+            PreparedStatement statement = connection.prepareStatement(
+                    "INSERT INTO Serie(titre,nb_season, user_id) VALUES (?,?,?)"
+            );
+
+            statement.setString(1,title);
+            statement.setInt(2,nbSeason);
+            statement.setInt(3,userId);
+
+            statement.executeUpdate();
+		} catch (
+                SQLException e) {
+            e.printStackTrace();
+        }		
+	}
 }

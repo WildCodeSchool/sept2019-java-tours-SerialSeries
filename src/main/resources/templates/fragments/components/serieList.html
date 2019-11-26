@@ -2,6 +2,7 @@
 <html lang="en" xmlns:th="http://www/thymeleaf.org">
 
 <body>
+
     <ul th:fragment="serieList">
         <li th:each="serie : ${serieList}">
         	
@@ -14,6 +15,8 @@
 		        		<a th:text="|Season n° ${season.number}|"></a>
 		        			<ul th:include="fragments/components/episodeList::episodeList">
 				        	</ul>
+				        	  		<a th:href="@{'/user/'+${currentUser.id} +'/season/'+ ${season.id}+'/episode/create'}">Add episode</a>        		
+				        	
 		        	</li>
 	        	</ul>
         </li>

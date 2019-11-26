@@ -44,4 +44,43 @@ public class SeasonRepository {
         }
         return null;
     }
+    
+	public void createSeason(int number, int serieId) {
+		try {
+	        Connection connection = Database.getInstance().getConnection();
+
+            PreparedStatement statement = connection.prepareStatement(
+                    "INSERT INTO Season(serie_id,number) VALUES (?,?)"
+            );
+
+            statement.setInt(1,serieId);
+            statement.setInt(2,number);
+
+            statement.executeUpdate();
+            
+		} catch (
+                SQLException e) {
+            e.printStackTrace();
+        }		
+	}
+
+	public Season getSeasonBySeasonId(int seasonId) {
+        try {
+            Connection connection = Database.getInstance().getConnection();
+
+            PreparedStatement statement = connection.prepareStatement(
+                    "SELECT * FROM Season WHERE id=? ORDER BY number"
+            );
+
+            statement.setInt(1, seasonId);
+            ResultSet resultSet = statement.executeQuery();
+
+            if (resultSet.next()){
+                return new Season(resultSet);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+	}
 }

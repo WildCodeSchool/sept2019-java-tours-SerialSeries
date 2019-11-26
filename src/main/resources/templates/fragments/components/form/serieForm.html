@@ -6,12 +6,9 @@
 </head>
 <body>
 
-    <form action="#" th:action="@{/serie}" th:object="${serie}" method="post" th:fragment="serieForm">
+    <form action="#" th:action="@{'/user/'+${currentUser.id}+'/serie/create'}" th:object="${createdSerie}" method="post" th:fragment="serieForm">
         <input type="text" th:field="*{title}" placeholder="Entrez un titre" required/>
         <input type="number" th:field="*{nbSeason}" placeholder="Nombre de saison" min="1" required/>
-        <select th:field="*{userId}">
-            <option th:each= "useritem : ${users}" th:text="${useritem.userName}" th:value="${useritem.id}" >
-        </select>
         <input type="submit" value="Valider">
     </form>
 </body>
