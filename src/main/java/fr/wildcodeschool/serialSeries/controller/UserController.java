@@ -3,10 +3,13 @@ package fr.wildcodeschool.serialSeries.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import fr.wildcodeschool.serialSeries.entity.Episode;
 import fr.wildcodeschool.serialSeries.entity.Season;
+import fr.wildcodeschool.serialSeries.entity.form.EpisodeForm;
 import fr.wildcodeschool.serialSeries.entity.form.SeasonForm;
 import fr.wildcodeschool.serialSeries.entity.form.SerieForm;
 import fr.wildcodeschool.serialSeries.entity.form.UserForm;
+import fr.wildcodeschool.serialSeries.repository.EpisodeRepository;
 import fr.wildcodeschool.serialSeries.repository.SeasonRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -24,6 +27,21 @@ import fr.wildcodeschool.serialSeries.repository.UserRepository;
 @Controller
 @RequestMapping("/user")
 public class UserController {
+
+    @GetMapping("/{id}/season/{seasonId}/episode/create")
+    public String createEpisode(@PathVariable int id, @PathVariable int seasonId, Model model) {
+        model.addAttribute("createdEpisode", new EpisodeForm());
+        model.addAttribute("currentUser", UserRepository.getInstance().getUsersById(id));
+        model.addAttribute("currentSeason", SeasonRepository.getInstance().getSeasonBySeasonId(seasonId));
+        return "episodeCreator";
+    }
+
+    @PostMapping("/{id}/season/{seasonId}/episode/create")
+    public String createEpisode(@PathVariable int id, @PathVariable int seasonId, @ModelAttribute EpisodeForm episodeForm) {
+
+        EpisodeRepository.getInstance().createEpisode(episodeForm.getTitle(), id, episodeForm.getNumber(), false, seasonId, SeasonRepository.getInstance().getSeasonBySeasonId(seasonId).getSerieId());
+        return "redirect:/";
+    }
 
     @GetMapping("/{id}/season/{serieId}/create")
     public String createSeason(@PathVariable int id, @PathVariable int serieId, Model model) {
@@ -66,6 +84,10 @@ public class UserController {
         List<Season> seasons = new ArrayList<>();
         series.forEach(serieX-> seasons.addAll(SeasonRepository.getInstance().getSeasonBySerieId(serieX.getId())));
         model.addAttribute("seasonList", seasons);
+
+        List<Episode> episodes = new ArrayList<>();
+        seasons.forEach(seasonX-> episodes.addAll(EpisodeRepository.getInstance().getEpisodeBySeasonId(seasonX.getId())));
+        model.addAttribute("episodeList",episodes);
 
         return "userProfile";
     }
