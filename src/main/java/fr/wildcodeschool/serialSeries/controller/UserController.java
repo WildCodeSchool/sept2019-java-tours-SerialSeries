@@ -27,7 +27,8 @@ import fr.wildcodeschool.serialSeries.repository.UserRepository;
 @Controller
 @RequestMapping("/user")
 public class UserController {
-
+	
+	//Display creation Episode Form
     @GetMapping("/{id}/season/{seasonId}/episode/create")
     public String createEpisode(@PathVariable int id, @PathVariable int seasonId, Model model) {
         model.addAttribute("createdEpisode", new EpisodeForm());
@@ -35,14 +36,16 @@ public class UserController {
         model.addAttribute("currentSeason", SeasonRepository.getInstance().getSeasonBySeasonId(seasonId));
         return "episodeCreator";
     }
-
+    
+    //Process season Episode Form
     @PostMapping("/{id}/season/{seasonId}/episode/create")
     public String createEpisode(@PathVariable int id, @PathVariable int seasonId, @ModelAttribute EpisodeForm episodeForm) {
 
         EpisodeRepository.getInstance().createEpisode(episodeForm.getTitle(), id, episodeForm.getNumber(), false, seasonId, SeasonRepository.getInstance().getSeasonBySeasonId(seasonId).getSerieId());
         return "redirect:/user/" + id;
     }
-
+    
+	//Display creation season Form
     @GetMapping("/{id}/season/{serieId}/create")
     public String createSeason(@PathVariable int id, @PathVariable int serieId, Model model) {
         model.addAttribute("createdSeason", new SeasonForm());
@@ -50,13 +53,15 @@ public class UserController {
         model.addAttribute("serieId", serieId);
         return "seasonCreator";
     }
-
+    
+    //Process season creation Form
     @PostMapping("/{id}/season/{serieId}/create")
     public String createUser(@PathVariable int id,@PathVariable int serieId, @ModelAttribute SeasonForm seasonForm) {
         SeasonRepository.getInstance().createSeason(seasonForm.getNumber(), serieId);;
         return "redirect:/user/"+id;
     }
-
+	
+	//Display creation série Form
     @GetMapping("/{id}/serie/create")
     public String createSerie(@PathVariable int id, Model model) {
         model.addAttribute("createdSerie", new SerieForm());
@@ -64,14 +69,15 @@ public class UserController {
         model.addAttribute("serieList", SerieRepository.getInstance().getSerieByUserId(id));
         return "serieCreator";
     }
-
+    
+    //Process série creation Form
     @PostMapping("/{id}/serie/create")
     public String createSerie(@PathVariable int id, @ModelAttribute SerieForm serieForm) {
         SerieRepository.getInstance().createSerie(serieForm.getTitle(), serieForm.getNbSeason(), id);
         return "redirect:/user/" + id;
     }
 
-    //This path handle display the user's list
+    //This path handle display the profile page
     @GetMapping("/{id}")
     public String getAll(@PathVariable int id, Model model) {
         model.addAttribute("currentUser", UserRepository.getInstance().getUsersById(id));
@@ -91,13 +97,15 @@ public class UserController {
 
         return "userProfile";
     }
-    //This handle the user's creation
+    
+    //Display create User Form
     @GetMapping("/create")
     public String createUser(Model model) {
         model.addAttribute("createdUser", new UserForm());
         return "userCreator";
     }
-
+    
+    //Process User creation Form
     @PostMapping("/create")
     public String createUser(@ModelAttribute UserForm userForm) {
         UserRepository.getInstance().createUser(userForm.getUserName(), userForm.getPictureUrl());

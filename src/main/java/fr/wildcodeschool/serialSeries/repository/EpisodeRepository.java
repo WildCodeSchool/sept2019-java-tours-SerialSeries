@@ -16,11 +16,13 @@ import java.util.List;
  * All request used with the database on Episode TABLE
  */
 public class EpisodeRepository {
+	
     private static EpisodeRepository instance;
 
     public static EpisodeRepository getInstance() {
         return instance == null ? new EpisodeRepository(): instance;
     }
+    
     /**
      * This method get all Episode of a Season by season_id from database
      * @return List of serie of a user
@@ -45,7 +47,8 @@ public class EpisodeRepository {
         }
         return null;
     }
-
+    
+    //Create Episode in Database
     public void createEpisode(String title, int userId, int number, boolean vue, int seasonId, int serieId) {
         try {
             Connection connection = Database.getInstance().getConnection();

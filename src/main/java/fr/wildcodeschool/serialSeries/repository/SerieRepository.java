@@ -43,7 +43,7 @@ public class SerieRepository {
         }
         return null;
     }
-
+    //Request on database to create série
     public void createSerie(String title, int nbSeason, int userId) {
         try {
             Connection connection = Database.getInstance().getConnection();
