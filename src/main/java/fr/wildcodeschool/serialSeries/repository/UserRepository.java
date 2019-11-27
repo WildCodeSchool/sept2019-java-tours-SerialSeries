@@ -65,7 +65,7 @@ public class UserRepository {
         }
     }
 
-
+    //Request on database to get user by specific ID
     public User getUsersById(int id) {
         try {
             Connection connection = Database.getInstance().getConnection();
