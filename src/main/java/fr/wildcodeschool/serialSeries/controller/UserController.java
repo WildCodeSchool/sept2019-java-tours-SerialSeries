@@ -41,9 +41,13 @@ public class UserController {
     
     //Process season Episode Form
     @PostMapping("/{id}/season/{seasonId}/episode/create")
-    public String createEpisode(@PathVariable int id, @PathVariable int seasonId, @ModelAttribute EpisodeForm episodeForm) {
-
+    public String createEpisode(@PathVariable int id, @PathVariable int seasonId, @ModelAttribute("createdEpisode") @Valid EpisodeForm episodeForm,  BindingResult bindingResult, Model model) {
         EpisodeRepository.getInstance().createEpisode(episodeForm.getTitle(), id, episodeForm.getNumber(), false, seasonId, SeasonRepository.getInstance().getSeasonBySeasonId(seasonId).getSerieId());
+        if(bindingResult.hasErrors()) {
+            model.addAttribute("currentUser", UserRepository.getInstance().getUsersById(id));
+            model.addAttribute("currentSeason", SeasonRepository.getInstance().getSeasonBySeasonId(seasonId));
+            return"episodeCreator";
+        }
         return "redirect:/user/" + id;
     }
     
