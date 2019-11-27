@@ -1,6 +1,7 @@
 package fr.wildcodeschool.serialSeries.repository;
 
 import fr.wildcodeschool.serialSeries.entity.Episode;
+
 import fr.wildcodeschool.serialSeries.entity.Serie;
 
 import java.sql.Connection;
@@ -45,9 +46,10 @@ public class SerieRepository {
         return null;
     }
 
-	public void createSerie(String title, int nbSeason, int userId) {
-		try {
-	        Connection connection = Database.getInstance().getConnection();
+    //Request on database to create série
+    public void createSerie(String title, int nbSeason, int userId) {
+        try {
+            Connection connection = Database.getInstance().getConnection();
 
             PreparedStatement statement = connection.prepareStatement(
                     "INSERT INTO Serie(titre,nb_season, user_id) VALUES (?,?,?)"
@@ -58,9 +60,11 @@ public class SerieRepository {
             statement.setInt(3,userId);
 
             statement.executeUpdate();
-		} catch (
+
+        } catch (
                 SQLException e) {
             e.printStackTrace();
-        }		
-	}
+        }
+    }
 }
+

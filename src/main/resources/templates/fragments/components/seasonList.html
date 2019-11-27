@@ -2,14 +2,15 @@
 <html lang="en" xmlns:th="http://www/thymeleaf.org">
 
 <body>
-    <ul th:fragment="seasonList">
-        <li th:each="season : ${seasonList}" th:if="${serieId == season.seasonId}">
-        	<a th:text="|Season n° ${season.number}|"></a>
-        	<a th:href="@{'/user/'+${currentUser.id} +'/season/'+ ${season.id}+'/episode/create'}">Add episode</a>        		
-        	
-        	<ul th:include="fragments/components/episodeList::episodeList">
-			</ul>
-        </li>
-    </ul>
+
+<ul th:fragment="seasonList">
+    <li th:each="season : ${seasonList}" th:if="${season.serieId == serie.id}">
+        <a th:text="|Season n° ${season.number}|"></a>
+        <ul th:include="fragments/components/episodeList::episodeList"></ul>
+    </li>
+    <li>
+    	<a th:href="@{'/user/'+${currentUser.id} +'/season/'+ ${serie.id}+'/create'}" class="addSeason">+</a>			        
+    </li>
+</ul>
 </body>
 </html>

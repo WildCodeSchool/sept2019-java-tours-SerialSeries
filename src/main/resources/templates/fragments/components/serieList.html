@@ -2,32 +2,25 @@
 <html lang="en" xmlns:th="http://www/thymeleaf.org">
 
 <body>
-	<section th:fragment="serieList">
-	
-	<div class="cadreSerie">	
-		<ul th:fragment="serieList">
-		
-        	<li th:each="serie : ${serieList}">
-        	<ul id="slider_serie">
-				<li><img src="http://fr.web.img4.acsta.net/pictures/14/09/23/11/45/584667.jpg" class="img_slider"></li>
-			</ul>
-        	<div class="cadre_nom_serie">
-        	<a th:text="${serie.title}"></a>
-        	</div>
-        	<div class="cadre_nom_episode">
-        	<ul >
-	        	<li class="season"th:each="season : ${seasonList}" th:if="${season.serieId == serie.id}">
-	        		<a th:text="|Season n° ${season.number}|"></a>
-	        			<ul th:include="fragments/components/episodeList::episodeList">
-			        	</ul>
-			        <a th:href="@{'/user/'+${currentUser.id} +'/season/'+ ${season.id}+'/episode/create'}">Add episode</a>        		   	
-	        	</li>
-	        </ul>
-	        <a th:href="@{'/user/'+${currentUser.id} +'/season/create'}" class="addSeason">+</a>        		   	
-	        </div>
-        	</li>
-        </ul>
+<section th:fragment="serieList">
+	<div class="cadreSerie">
+		<ul>
+			
+		    <li th:each="serie : ${serieList}">
+				<ul id="slider_serie">
+					<li><img src="http://fr.web.img4.acsta.net/pictures/14/09/23/11/45/584667.jpg" class="img_slider"></li>
+				</ul>
+				<div class="cadre_nom_serie">
+			        <a th:text="${serie.title}"></a>
+			        <a th:text="|(${serie.nbSeason} Season(s))|"></a>
+			   
+			    </div>
+			    <div class="cadre_nom_episode">
+			        <ul th:include="fragments/components/seasonList::seasonList"></ul>
+			    </div>
+		    </li>
+		</ul>
 	</div>
-	</section>
+</section>
 </body>
 </html>

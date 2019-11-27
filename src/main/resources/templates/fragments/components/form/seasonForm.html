@@ -4,12 +4,10 @@
     <meta charset="UTF-8">
 </head>
 <body>
-	<form action="#" th:action="@{'/user/'+${currentUser.id} + '/season/create'}" th:object="${createdSeason}" method="post" th:fragment="seasonForm">
-        <input type="number" th:field="*{number}" placeholder="Nombre de saison" min="1" required/>
-        <select th:field="*{serieId}">
-            <option th:each= "serieitem : ${serieList}" th:text="${serieitem.title}" th:value="${serieitem.id}" >
-        </select>
-        <input type="submit" value="Valider">
-	</form>
+<form action="#" th:action="@{'/user/'+${currentUser.id} + '/season/'+${serieId}+'/create'}" th:object="${createdSeason}" method="post" th:fragment="seasonForm" class="form">
+    <p th:if="${#fields.hasErrors('number')}" th:errors="*{number}"/>
+    <input type="number" th:field="*{number}" placeholder="Nombre de saison" required min="1"/>
+    <input type="submit" value="Valider">
+</form>
 </body>
 </html>

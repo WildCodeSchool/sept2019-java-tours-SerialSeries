@@ -5,12 +5,12 @@
     <title>Title</title>
 </head>
 <body>
-
-    <form action="#" th:action="@{/user/create}" th:object="${createdUser}" method="post" th:fragment="userForm" id="userForm">
-       	<img src="https://carlisletheacarlisletheatre.org/images/person-icon-transparent-background-9.jpg" style="width:100%">
-        <input type="text" th:field="*{userName}" placeholder="Entrez un nom" required/>
-        <input type="text" th:field="*{pictureUrl}" placeholder="Entrez une url pour votre image" required/>
-        <input type="submit" value="Valider">
-    </form>
+<form action="#" th:action="@{/user/create}" th:object="${createdUser}" method="post" th:fragment="userForm"  class="form">
+    <p th:if="${#fields.hasErrors('userName')}" th:errors="*{userName}"/>
+    <input type="text" th:field="*{userName}" placeholder="Entrez un nom" required/>
+    <p th:if="${#fields.hasErrors('pictureUrl')}" th:errors="*{pictureUrl}"/>
+    <input type="text" th:field="*{pictureUrl}" placeholder="Entrez une url pour votre image" required/>
+    <input type="submit" value="Valider" style="background-color:grey">
+</form>
 </body>
 </html>

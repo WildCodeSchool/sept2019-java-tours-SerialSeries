@@ -14,6 +14,7 @@ import java.util.List;
  * All request used with the database on Season TABLE
  */
 public class SeasonRepository {
+	
     private static SeasonRepository instance;
 
     public static SeasonRepository getInstance() {
@@ -44,10 +45,11 @@ public class SeasonRepository {
         }
         return null;
     }
-    
-	public void createSeason(int number, int serieId) {
-		try {
-	        Connection connection = Database.getInstance().getConnection();
+
+    // Create season in Database
+    public void createSeason(int number, int serieId) {
+        try {
+            Connection connection = Database.getInstance().getConnection();
 
             PreparedStatement statement = connection.prepareStatement(
                     "INSERT INTO Season(serie_id,number) VALUES (?,?)"
@@ -57,14 +59,16 @@ public class SeasonRepository {
             statement.setInt(2,number);
 
             statement.executeUpdate();
-            
-		} catch (
+
+        } catch (
                 SQLException e) {
             e.printStackTrace();
-        }		
-	}
+        }
+    }
+    
+    // Get Season by ID in Database
+    public Season getSeasonBySeasonId(int seasonId) {
 
-	public Season getSeasonBySeasonId(int seasonId) {
         try {
             Connection connection = Database.getInstance().getConnection();
 
@@ -82,5 +86,6 @@ public class SeasonRepository {
             e.printStackTrace();
         }
         return null;
-	}
+
+    }
 }

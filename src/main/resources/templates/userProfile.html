@@ -3,17 +3,11 @@
 <head th:replace="fragments/main/head::head"> </head>
 
 <body>
-<!--
-
-
-<a href="/user/create">Add user</a>
-
 
 <a th:href="@{'/user/'+${currentUser.id} +'/serie/create'}">Add serie</a>
-<a th:href="@{'/user/'+${currentUser.id} +'/season/create'}">Add season</a>
--->
+
 <nav th:include="fragments/components/userList::userList" id="en_tete"></nav>
-<section th:include="fragments/components/serieList::serieList" id="content"></section>
+<ul th:include="fragments/components/serieList::serieList" id="content"></ul>
 
 <footer th:replace="fragments/main/footer::footer"> </footer>
 </body>

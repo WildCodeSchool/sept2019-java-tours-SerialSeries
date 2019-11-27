@@ -102,7 +102,7 @@ body{
     object-fit: cover;
 }
 
-#userForm{
+.form{
 	display:flex;
 	justify-content:center;
 	flex-direction: column;
@@ -112,7 +112,7 @@ body{
 	margin:auto;	
 }
 
-#userForm>input{
+.form>input{
 	font-size:1em;
 }
 

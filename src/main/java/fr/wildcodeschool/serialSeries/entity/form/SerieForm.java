@@ -11,11 +11,12 @@ import javax.validation.constraints.Size;
 public class SerieForm {
 
     @NotNull
-    @Min(value = 1)
+
+    @Min(value = 1, message="You can't create the season 0")
     private int nbSeason;
 
     @NotNull
-    @Size(min = 3, max = 45)
+    @Size(min = 3, max = 45, message="Your title can't contain less than 3 characters and more than 45")
     private String title;
 
     @NotNull
@@ -46,3 +47,4 @@ public class SerieForm {
         this.userId = userId;
     }
 }
+
