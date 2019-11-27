@@ -5,7 +5,8 @@
 </head>
 <body>
 <form action="#" th:action="@{'/user/'+${currentUser.id} + '/season/'+${serieId}+'/create'}" th:object="${createdSeason}" method="post" th:fragment="seasonForm">
-    <input type="number" th:field="*{number}" placeholder="Nombre de saison" min="1" required/>
+    <p th:if="${#fields.hasErrors('number')}" th:errors="*{number}"/>
+    <input type="number" th:field="*{number}" placeholder="Nombre de saison" />
     <input type="submit" value="Valider">
 </form>
 </body>

@@ -8,20 +8,11 @@ import javax.validation.constraints.NotNull;
 
 public class SeasonForm {
 	@NotNull
-    @Min(value = 1)
-    private int serieId;
-	@NotNull
-    @Min(value = 1)
+    @Min(value = 1, message="You can't create season 0")
     private int number;
 
-    public int getSerieId() {
-        return serieId;
-    }
     public int getNumber() {
         return number;
-    }
-    public void setSerieId(int serieId) {
-        this.serieId = serieId;
     }
     public void setNumber(int number) {
         this.number = number;
