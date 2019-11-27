@@ -16,7 +16,7 @@
 			</div>
             <div style="display:flex;">
               <h3 th:if="${currentUser.id!=0}" th:text="${currentUser.userName}"></h3>
-        			<h7 th:if="${currentUser.id!=0}" th:text="@{'#'+ ${currentUser.id}}" class="hashtag"></h7>
+        			<h6 th:if="${currentUser.id!=0}" th:text="@{'#'+ ${currentUser.id}}" class="hashtag"></h6>
      
             </div>
          </div>
@@ -31,7 +31,7 @@
                 <a  th:href="@{'/user/'+${user.id}}"><img class="logo_utilisateur" 	th:src="${user.pictureUrl}"/></a>
             <div style="display:flex;">
                 <h3 th:text="${user.userName}"></h3>
-            	<h8 th:text="@{'#'+ ${user.id}}" class="hashtag"></h8>
+            	<h6 th:text="@{'#'+ ${user.id}}" class="hashtag"></h6>
             </div>
             </li>
         </ul>

@@ -4,12 +4,10 @@
 <body>
 <ul th:fragment="episodeList">
   	<li th:each="episode : ${episodeList}" th:if="${episode.seasonId == season.id}">
-  		<a th:text="|Episode n° ${episode.number}|"></a>
-  		<h3 th:text= "${episode.title}"></h3>
+  		<h4 th:text="|Episode n° ${episode.number}|"></h4>
+  		<h5 th:text= "${episode.title}"></h5>
   	</li>
-	<li>
-		<a th:href="@{'/user/'+${currentUser.id} +'/season/'+ ${season.id}+'/episode/create'}">Add episode</a>
-	</li>
+
 </ul>
 </body>
 </html>

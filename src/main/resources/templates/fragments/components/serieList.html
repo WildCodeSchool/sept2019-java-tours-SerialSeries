@@ -3,17 +3,21 @@
 
 <body>
 <section th:fragment="serieList">
+
 	<div class="cadreSerie">
+		<div th:if="${currentUser.id!=0}" class="addSerie">
+    	</div>
 		<ul>
 			
 		    <li th:each="serie : ${serieList}">
 				<ul id="slider_serie">
-					<li><img src="http://fr.web.img4.acsta.net/pictures/14/09/23/11/45/584667.jpg" class="img_slider"></li>
+					<li>
+					<img src="http://fr.web.img4.acsta.net/pictures/14/09/23/11/45/584667.jpg" class="img_slider">
+
+					</li>
 				</ul>
 				<div class="cadre_nom_serie">
 			        <a th:text="${serie.title}"></a>
-			        <a th:text="|(${serie.nbSeason} Season(s))|"></a>
-			   
 			    </div>
 			    <div class="cadre_nom_episode">
 			        <ul th:include="fragments/components/seasonList::seasonList"></ul>
