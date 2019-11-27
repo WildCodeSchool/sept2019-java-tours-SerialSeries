@@ -13,7 +13,7 @@
 <a th:href="@{'/user/'+${currentUser.id} +'/season/create'}">Add season</a>
 -->
 <nav th:include="fragments/components/userList::userList" id="en_tete"></nav>
-<ul th:include="fragments/components/serieList::serieList"></ul>
+<section th:include="fragments/components/serieList::serieList" id="content"></section>
 
 <footer th:replace="fragments/main/footer::footer"> </footer>
 </body>

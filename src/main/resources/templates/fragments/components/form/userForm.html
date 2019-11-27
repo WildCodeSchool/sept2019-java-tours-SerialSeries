@@ -5,7 +5,9 @@
     <title>Title</title>
 </head>
 <body>
-    <form action="#" th:action="@{/user/create}" th:object="${createdUser}" method="post" th:fragment="userForm">
+
+    <form action="#" th:action="@{/user/create}" th:object="${createdUser}" method="post" th:fragment="userForm" id="userForm">
+       	<img src="https://carlisletheacarlisletheatre.org/images/person-icon-transparent-background-9.jpg" style="width:100%">
         <input type="text" th:field="*{userName}" placeholder="Entrez un nom" required/>
         <input type="text" th:field="*{pictureUrl}" placeholder="Entrez une url pour votre image" required/>
         <input type="submit" value="Valider">

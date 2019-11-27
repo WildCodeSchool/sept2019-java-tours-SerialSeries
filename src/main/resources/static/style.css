@@ -10,6 +10,30 @@
 *{
 	list-style:none;
 }
+body{
+	display:flex;
+	flex-direction:column;
+}
+
+.addSeason{
+	display: flex;
+    justify-content: center;
+    text-decoration: none;
+    background-color: grey;
+    color: black;
+    position: absolute;
+    bottom: 0;
+    height: 1.5em;
+    width: 100%;
+    align-items: center;
+}
+
+.hashtag{
+    font-size: 0.5em;
+    display: flex;
+    align-items: center;
+}
+
 #en_tete h1{
 	margin:0;
 }
@@ -52,24 +76,23 @@
     height:1em;
     border: 3px solid black;
     border-radius:50%;
-    background-color:var(--hoversurface-color);
+    background-color:white	;
 }
 
 #en_tete #currentUser	{
-		width:3em;
-	
-display: flex;
+	width:3em;
+	display: flex;
     flex-direction: column;
     align-items: center;
 }
 #en_tete #currentUser>div	{
-position: relative;
+	position: relative;
 	
 
 	}
 #en_tete h3{
-padding:0;
-margin:0;
+	padding:0;
+	margin:0;
 	}
 .logo_utilisateur
 {
@@ -78,6 +101,22 @@ margin:0;
     width: 3em;
     object-fit: cover;
 }
+
+#userForm{
+	display:flex;
+	justify-content:center;
+	flex-direction: column;
+	width: 40%;
+	padding: 5px;
+	font-size:3em;
+	margin:auto;	
+}
+
+#userForm>input{
+	font-size:1em;
+}
+
+
 #content
 {
 	padding: 0 2em;
@@ -93,7 +132,10 @@ margin:0;
 	align-items: center;
 	height: 600px;
 }
-#cadre_nom_serie
+
+
+
+.cadre_nom_serie
 {
 	display: flex;
 	flex-direction: column;
@@ -102,6 +144,9 @@ margin:0;
 	background-color: white;
 	width: 80%;
 	margin: auto;
+	font-size:4em;
+	padding: 0.2em 0;
+    font-weight: bold;
 }
 .paragraphe_cadre
 {
@@ -117,14 +162,31 @@ margin:0;
 	color: white;
 	width: 100%;
 }
-#cadre_nom_episode
+
+.img_slider{
+	width: 39%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+.season>ul{
+	display:none;
+}
+.cadre_nom_episode
 {
 	background-color: white;
-	width: 80%;
-	margin: auto;
-	height: 600px;
-	margin-top: 40px;
-
+    width: 80%;
+    margin: auto;
+    height: 600px;
+    margin-top: 60px;
+    display: flex;
+    font-size: 4em;
+    overflow: scroll;
+    position: relative;
+    flex-direction: column;
+    padding-bottom: 1em;
 }
 .nom_episode
 {
@@ -148,6 +210,13 @@ margin:0;
 {
 	display: none;
 }
+
+
+
+
+
+
+
 
 html
 {

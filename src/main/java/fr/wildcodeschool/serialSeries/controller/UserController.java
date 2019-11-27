@@ -41,7 +41,7 @@ public class UserController {
     public String createEpisode(@PathVariable int id, @PathVariable int seasonId, @ModelAttribute EpisodeForm episodeForm) {
     	
         EpisodeRepository.getInstance().createEpisode(episodeForm.getTitle(), id, episodeForm.getNumber(), false, seasonId, SeasonRepository.getInstance().getSeasonBySeasonId(seasonId).getSerieId());
-        return "redirect:/";
+        return "redirect:/user/{id}";
     }
     
     
@@ -57,7 +57,7 @@ public class UserController {
     @PostMapping("/{id}/season/create")
     public String createUser(@ModelAttribute SeasonForm seasonForm) {
         SeasonRepository.getInstance().createSeason(seasonForm.getNumber(), seasonForm.getSerieId());;
-        return "redirect:/";
+        return "redirect:/user/{id}";
     }
     
   	@GetMapping("/{id}/serie/create")
@@ -71,7 +71,7 @@ public class UserController {
     @PostMapping("/{id}/serie/create")
     public String createSerie(@PathVariable int id, @ModelAttribute SerieForm serieForm) {
         SerieRepository.getInstance().createSerie(serieForm.getTitle(), serieForm.getNbSeason(), id);
-        return "redirect:/";
+        return "redirect:/user/{id}";
     }
   	
 //This path handle display the user's list
