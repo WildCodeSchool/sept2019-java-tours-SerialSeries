@@ -7,12 +7,14 @@ import fr.wildcodeschool.serialSeries.entity.Episode;
 import fr.wildcodeschool.serialSeries.entity.Season;
 import fr.wildcodeschool.serialSeries.entity.form.EpisodeForm;
 import fr.wildcodeschool.serialSeries.entity.form.SeasonForm;
+import javax.validation.Valid;
 import fr.wildcodeschool.serialSeries.entity.form.SerieForm;
 import fr.wildcodeschool.serialSeries.entity.form.UserForm;
 import fr.wildcodeschool.serialSeries.repository.EpisodeRepository;
 import fr.wildcodeschool.serialSeries.repository.SeasonRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 
@@ -56,8 +58,13 @@ public class UserController {
     
     //Process season creation Form
     @PostMapping("/{id}/season/{serieId}/create")
-    public String createUser(@PathVariable int id,@PathVariable int serieId, @ModelAttribute SeasonForm seasonForm) {
+    public String createUser(@PathVariable int id,@PathVariable int serieId, @ModelAttribute("createdSeason") @Valid SeasonForm seasonForm, BindingResult bindingResult, Model model) {
         SeasonRepository.getInstance().createSeason(seasonForm.getNumber(), serieId);;
+        if(bindingResult.hasErrors()) {
+            model.addAttribute("currentUser", UserRepository.getInstance().getUsersById(id));
+            model.addAttribute("serieId", serieId);
+            return"seasonCreator";
+        }
         return "redirect:/user/"+id;
     }
 	
@@ -72,8 +79,13 @@ public class UserController {
     
     //Process série creation Form
     @PostMapping("/{id}/serie/create")
-    public String createSerie(@PathVariable int id, @ModelAttribute SerieForm serieForm) {
-        SerieRepository.getInstance().createSerie(serieForm.getTitle(), serieForm.getNbSeason(), id);
+    public String createSerie(@PathVariable int id, @ModelAttribute("createdSerie") @Valid SerieForm createdSerie,BindingResult bindingResult, Model model) {
+        SerieRepository.getInstance().createSerie(createdSerie.getTitle(), createdSerie.getNbSeason(), id);
+        if(bindingResult.hasErrors()) {
+            model.addAttribute("currentUser", UserRepository.getInstance().getUsersById(id));
+            model.addAttribute("serieList", SerieRepository.getInstance().getSerieByUserId(id));
+        	return"serieCreator";
+        }
         return "redirect:/user/" + id;
     }
 
