@@ -36,12 +36,12 @@ public class UserController {
     //Process série creation Form
     @PostMapping("/{id}/serie/create")
     public String createSerie(@PathVariable int id, @ModelAttribute("createdSerie") @Valid SerieForm createdSerie,BindingResult bindingResult,Model model) {
-        SerieRepository.getInstance().createSerie(createdSerie.getTitle(), createdSerie.getNbSeason(), id);
         if(bindingResult.hasErrors()) {
             model.addAttribute("currentUser", UserRepository.getInstance().getUsersById(id));
             model.addAttribute("serieList", SerieRepository.getInstance().getSerieByUserId(id));
         	return"serieCreator";
         }
+	SerieRepository.getInstance().createSerie(createdSerie.getTitle(), createdSerie.getNbSeason(), id);
         return "redirect:/user/" + id;
     }
 
