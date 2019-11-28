@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www/thymeleaf.org">
+
+<body>
+
+<ul th:fragment="serieList">
+    <li th:each="serie : ${serieList}">
+
+        <a th:text="${serie.title}"></a>
+        <a th:text="|(${serie.nbSeason} Season(s))|"></a>
+    </li>
+</ul>
+</body>
+</html>

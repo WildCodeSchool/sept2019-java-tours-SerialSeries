@@ -3,54 +3,52 @@ package fr.wildcodeschool.serialSeries.entity;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+/**
+ *  This class is used as database model of a Serie
+ */
 public class Serie {
-	private String titre;
-	private int season;
-	private int episode;
-	
-	
-	public Serie(String titre, int season, int episode) {
-		this.titre = titre;
-		this.season = season;
-		this.episode = episode;
-	}
+	private int id;
+	private int userId;
+	private String title;
+	private int nbSeason;
 
 	public Serie(ResultSet resultSet) throws SQLException{
-		this.titre = resultSet.getString("titre");
-		this.season = resultSet.getInt("nb_season");
-		this.episode = resultSet.getInt("episode");
+		this.id = resultSet.getInt("id");
+		this.userId = resultSet.getInt("user_id");
+		this.title = resultSet.getString("titre");
+		this.nbSeason = resultSet.getInt("nb_season");
 	}
 
-	public String getTitre() {
-		return this.titre;
+	public int getId() {
+		return id;
 	}
 
-
-	public int getSeason() {
-		return this.season;
+	public void setId(int id) {
+		this.id = id;
 	}
 
-
-	public int getEpisode() {
-		return this.episode;
+	public int getUserId() {
+		return userId;
 	}
 
-
-	public void setTitre(String titre) {
-		this.titre = titre;
+	public void setUserId(int userId) {
+		this.userId = userId;
 	}
 
-
-	public void setSeason(int season) {
-		this.season = season;
+	public String getTitle() {
+		return title;
 	}
 
-
-	public void setEpisode(int episode) {
-		this.episode = episode;
+	public void setTitle(String title) {
+		this.title = title;
 	}
-	
-	
 
+	public int getNbSeason() {
+		return nbSeason;
+	}
+
+	public void setNbSeason(int nbSeason) {
+		this.nbSeason = nbSeason;
+	}
 
 }

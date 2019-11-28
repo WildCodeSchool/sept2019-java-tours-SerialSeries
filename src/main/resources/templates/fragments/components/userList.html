@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www/thymeleaf.org">
+
+<body>
+<nav th:fragment="userList" >
+    <div id="currentUser"th:if="${currentUser.id!=0}">
+        <div>
+            <img th:src="${currentUser.pictureUrl}" class="logo_utilisateur"/>
+        </div>
+
+
+        <h3 th:text="${currentUser.userName}"></h3>
+    </div>
+    <ul id="userList"class='hide'>
+        <li th:each="user : ${userList}" th:if="${currentUser.id!=user.id}">
+            <a  th:href="@{'/user/'+${user.id}}"><img class="logo_utilisateur" 	th:src="${user.pictureUrl}"/></a><h3 th:text="${user.userName}"></h3>
+        </li>
+    </ul>
+</nav>
+</body>
+</html>
