@@ -14,6 +14,6 @@ public class DefaultController {
     public String index(Model model) {
         model.addAttribute("currentUser", new User());
         model.addAttribute("userList", UserRepository.getInstance().getUsers());
-    return "index";
-}
+        return "index";
+    }
 }

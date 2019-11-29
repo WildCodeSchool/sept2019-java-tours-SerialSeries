@@ -13,6 +13,7 @@ import fr.wildcodeschool.serialSeries.entity.User;
  * All request used with the database on User TABLE
  */
 public class UserRepository {
+	
     private static UserRepository instance;
 
     public static UserRepository getInstance() {
@@ -45,6 +46,7 @@ public class UserRepository {
         return null;
 
     }
+    
     /**
      * This method create a User in the database
      */

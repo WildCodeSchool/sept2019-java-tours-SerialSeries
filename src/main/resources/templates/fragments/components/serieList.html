@@ -8,6 +8,8 @@
 
         <a th:text="${serie.title}"></a>
         <a th:text="|(${serie.nbSeason} Season(s))|"></a>
+        <a th:href="@{'/user/'+${currentUser.id} +'/season/'+ ${serie.id}+'/create'}">Add season</a>
+        <ul th:include="fragments/components/seasonList::seasonList"></ul>
     </li>
 </ul>
 </body>
