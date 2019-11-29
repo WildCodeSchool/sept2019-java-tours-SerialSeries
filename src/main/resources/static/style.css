@@ -43,6 +43,14 @@ h6{
 	font-size:.67em;
 }
 
+.label_form{
+	color:white;
+}
+.button{
+	background-color:grey;
+}
+
+
 #presentation{
 	width: 95%;
     display: flex;
@@ -282,8 +290,8 @@ h6{
 .addSerie{
     height: 3em;
     background-color: var(--surface-color);
-    width: 39%;
     text-align:center;
+    padding: 5px;
     margin-top:1%; 
 }
 
