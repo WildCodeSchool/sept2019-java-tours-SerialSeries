@@ -8,14 +8,20 @@
 	--on-secondary-color: black;
 	--sizeh1: 2em;
 }
+html{
+	height:100%;
+}
 *{
 	list-style:none;
 	text-decoration:none;
 }
 body{
-	display:flex;
-	flex-direction:column;
-	align-items: flex-end;
+	display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
 }
 h1{
 	font-size:2em;
@@ -137,11 +143,16 @@ h6{
     object-fit: cover;
 }
 
+.div_form{
+	display:flex;
+	align-items:center;
+	justify-content:center;
+}
+
 .form{
 	display:flex;
 	justify-content:center;
 	flex-direction: column;
-	width: 40%;
 	padding: 5px;
 	font-size:3em;
 	margin:auto;	
@@ -149,9 +160,8 @@ h6{
 
 .form>input{
 	font-size:1em;
+	margin:2%;
 }
-
-
 
 .seasonStart{
 	display:flex;
@@ -167,6 +177,7 @@ h6{
 	padding: 0 2em;
 	align-items: center;
 	justify-content: center;
+	    overflow: scroll;
 }
 #slider_serie
 {
@@ -177,7 +188,6 @@ h6{
 	height: 600px;
 	
 }
-
 
 .cadre_nom_serie
 {
@@ -192,10 +202,12 @@ h6{
 	padding: 0.2em 0;
     font-weight: bold;
 }
+
 .paragraphe_cadre
 {
 	font-size: 3em;
 }
+
 #bouton_ajout
 {
 	display: flex;
@@ -216,15 +228,18 @@ h6{
     margin: auto;
     
 }
+
 .season>ul{
 	display:none;
 }
+
 .cadreSerie{
 	justify-content: center;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
+
 .cadre_nom_episode
 {
 	background-color: white;
@@ -239,6 +254,7 @@ h6{
     flex-direction: column;
     padding-bottom: 1em;
 }
+
 .nom_episode
 {
 	font-size: 3em;
@@ -257,23 +273,23 @@ h6{
 	width: 2em;
 
 }
+
 #image_serie_selectionnee
 {
 	display: none;
 }
 
-
-
-
-
- .addSerie{
+.addSerie{
     height: 3em;
-    background-color: red;
+    background-color: var(--surface-color);
     width: 39%;
+    text-align:center;
+    margin-top:1%; 
 }
 
 html
 {
+	height:100%;
 	background-color: var(--bg-color);
 }
 

@@ -6,6 +6,7 @@
 
 	<div class="cadreSerie">
 		<div th:if="${currentUser.id!=0}" class="addSerie">
+			<a th:href="@{'/user/'+${currentUser.id} +'/serie/create'}" style="font-size: 3em; color:white">+ Add serie</a>
     	</div>
 		<ul>
 			
@@ -20,7 +21,7 @@
 			        <a th:text="${serie.title}"></a>
 			    </div>
 			    <div class="cadre_nom_episode">
-			        <ul th:include="fragments/components/seasonList::seasonList"></ul>
+			        <ul th:include="fragments/components/seasonList::seasonList" style="overflow: scroll;padding-bottom: 5%;"></ul>
 			    </div>
 		    </li>
 		</ul>
