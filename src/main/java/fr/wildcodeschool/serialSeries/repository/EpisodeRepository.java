@@ -31,7 +31,7 @@ public class EpisodeRepository {
             Connection connection = Database.getInstance().getConnection();
 
             PreparedStatement statement = connection.prepareStatement(
-                    "SELECT * FROM Episode WHERE season_id=? ORDER BY episode_numb"
+                    "SELECT * FROM Episode JOIN Season ON Season.id=Episode.season_id WHERE season_id=? ORDER BY episode_numb"
             );
 
             statement.setInt(1, id);
@@ -48,25 +48,23 @@ public class EpisodeRepository {
     }
     
     //Create Episode in Database
-    public void createEpisode(String title, int userId, int number, boolean vue, int seasonId, int serieId) {
+    public void createEpisode(String title, int number, boolean seen, int seasonId) {
         try {
             Connection connection = Database.getInstance().getConnection();
 
             PreparedStatement statement = connection.prepareStatement(
-                    "INSERT INTO Episode(titre, user_id,episode_numb, vue, season_id,serie_id) VALUES (?,?,?,?,?, ?)"
+                    "INSERT INTO Episode(title,episode_numb, seen, season_id) VALUES (?,?,?,?)"
             );
 
             statement.setString(1,title);
-            statement.setInt(2,userId);
-            statement.setInt(3,number);
-            statement.setBoolean(4,vue);
-            statement.setInt(5,seasonId);
-            statement.setInt(6,serieId);
+            statement.setInt(2,number);
+            statement.setBoolean(3,seen);
+            statement.setInt(4,seasonId);
 
             statement.executeUpdate();
 		} catch (
                 SQLException e) {
-            e.printStackTrace();
+			e.getSQLState();
         }		
 	}
 }

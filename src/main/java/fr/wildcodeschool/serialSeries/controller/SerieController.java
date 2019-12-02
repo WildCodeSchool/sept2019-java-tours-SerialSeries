@@ -23,7 +23,7 @@ public class SerieController {
 	    
 	    @PostMapping("/create")
 	    public String createUser(@ModelAttribute SerieForm serieForm ) {
-	        SerieRepository.getInstance().createSerie(serieForm.getTitle(), serieForm.getNbSeason(), serieForm.getUserId());
+	        SerieRepository.getInstance().createSerie(serieForm.getTitle(), serieForm.getUserId(), serieForm.getPictureURL());
 	        return "redirect:/";
 	    }
 

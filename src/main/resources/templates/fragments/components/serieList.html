@@ -13,16 +13,26 @@
 		    <li th:each="serie : ${serieList}">
 				<ul id="slider_serie">
 					<li>
-					<img src="http://fr.web.img4.acsta.net/pictures/14/09/23/11/45/584667.jpg" class="img_slider">
+					<img th:src="${serie.pictureURL}"  class="img_slider">
 
 					</li>
 				</ul>
 				<div class="cadre_nom_serie">
 			        <a th:text="${serie.title}"></a>
 			    </div>
-			    <div class="cadre_nom_episode">
-			        <ul th:include="fragments/components/seasonList::seasonList" style="overflow: scroll;padding-bottom: 5%;"></ul>
-			    </div>
+			    <div >
+				    <div class="cadre_nom_season">
+				    	<a th:each="season : ${seasonList}" th:if="${season.serieId == serie.id}" th:text="${season.number}" ></a>
+				    	<a class="selected">S1</a>
+				    	<a>S1</a>
+				    	<a>S1</a>
+				    	<a>S1</a>
+				    	
+				    </div>
+				    <div class="cadre_nom_episode">
+				        <ul th:include="fragments/components/seasonList::seasonList" style="overflow: scroll;padding-bottom: 5%;"></ul>
+				    </div>
+				</div>
 		    </li>
 		</ul>
 	</div>

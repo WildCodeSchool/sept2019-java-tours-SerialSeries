@@ -1,7 +1,7 @@
 :root{
-	--bg-color: #222831;
-	--surface-color: #393e46;
-	--hoversurface-color: #1e242c;
+	--bg-color: #2b2a29;
+	--surface-color: #252423;
+	--hoversurface-color: #1e1c1c;
 	--primary-color: #edea4c;
 	--secondary-color: #f2ef49;
 	--on-primary-color: white;
@@ -10,6 +10,7 @@
 }
 html{
 	height:100%;
+	font-family: 'Varela Round', sans-serif;
 }
 *{
 	list-style:none;
@@ -55,7 +56,6 @@ h6{
 	width: 95%;
     display: flex;
     text-align: center;
-    border: 2px yellow solid;
     margin: auto;
     color: white;
     font-size: 4em;
@@ -80,8 +80,8 @@ h6{
 }
 
 .hashtag{
-    font-size: 0.5em;
-    display: flex;
+	font-size: 2.5rem;    
+	display: flex;
     align-items: center;
 }
 
@@ -100,8 +100,9 @@ h6{
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	background-color: white;
+	background-color: var(--hoversurface-color);
 	font-size: 3em;
+	color:white;
 }
 
 #userList{
@@ -118,14 +119,13 @@ h6{
 	padding: 0 0.1em;
 }
 #en_tete #userListIcon{
-	position:absolute;
-	right: 0;
-    bottom: 0;
-    width:1em;
-    height:1em;
+	position: absolute;
+    right: 0;
+    top: 25%;
+    width: 2em;
     border: 3px solid black;
-    border-radius:50%;
-    background-color:white	;
+    border-radius: 50%;
+    background-color: white;
 }
 
 #en_tete #currentUser	{
@@ -134,11 +134,7 @@ h6{
     flex-direction: column;
     align-items: center;
 }
-#en_tete #currentUser>div	{
-	position: relative;
-	
 
-	}
 #en_tete h3{
 	padding:0;
 	margin:0;
@@ -203,8 +199,7 @@ h6{
 	flex-direction: column;
 	margin-top: 90px;
 	align-items: center;
-	background-color: white;
-	width: 80%;
+	background-color: var(--surface-color);
 	margin: auto;
 	font-size:4em;
 	padding: 0.2em 0;
@@ -228,12 +223,11 @@ h6{
 }
 
 .img_slider{
-	width: 39%;
-    height: auto;
-    display: flex;
+	display: flex;
     justify-content: center;
     align-items: center;
     margin: auto;
+    height: 30rem;
     
 }
 
@@ -247,14 +241,30 @@ h6{
     flex-direction: column;
     align-items: center;
 }
+.cadre_nom_season{
+	padding: 30px;
+    display: flex;
+    justify-content: flex-start;
+    overflow: scroll;
+}
+
+.cadre_nom_season a{
+	min-width: 30%;
+	padding:10px 0px;
+    font-size: 3rem;
+    align-self: center;
+    text-align: center;
+}
+.cadre_nom_season a.selected{
+	background-color:var(--primary-color);
+	
+}
 
 .cadre_nom_episode
 {
-	background-color: white;
-    width: 80%;
+	background-color: var(--surface-color);
     margin: auto;
     height: 600px;
-    margin-top: 60px;
     display: flex;
     font-size: 4em;
     overflow: scroll;

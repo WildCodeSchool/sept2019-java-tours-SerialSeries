@@ -8,24 +8,25 @@ import java.sql.SQLException;
  */
 public class Episode {
     private int id;
+    
     private String title;
-    private boolean vue;
-    private int userId;
+    private boolean seen;
     private int number;
-    private int serieId;
     private int seasonId;
 
     public Episode(ResultSet resultSet) throws SQLException {
         this.id = resultSet.getInt("id");
-        this.title = resultSet.getString("titre");
-        this.vue = resultSet.getBoolean("vue");
-        this.userId = resultSet.getInt("user_id");
+        this.title = resultSet.getString("title");
+        this.seen = resultSet.getBoolean("seen");
         this.number = resultSet.getInt("episode_numb");
         this.seasonId = resultSet.getInt("season_id");
-        this.serieId = resultSet.getInt("serie_id");
     }
 
-    public int getId() {
+    public Episode() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public int getId() {
         return id;
     }
 
@@ -41,20 +42,12 @@ public class Episode {
         this.title = title;
     }
 
-    public boolean isVue() {
-        return vue;
+    public boolean isSeen() {
+        return seen;
     }
 
-    public void setVue(boolean vue) {
-        this.vue = vue;
-    }
-
-    public int getUserId() {
-        return userId;
-    }
-
-    public void setUserId(int userId) {
-        this.userId = userId;
+    public void setSeen(boolean seen) {
+        this.seen = seen;
     }
 
     public int getNumber() {
@@ -63,14 +56,6 @@ public class Episode {
 
     public void setNumber(int number) {
         this.number = number;
-    }
-
-    public int getSerieId() {
-        return serieId;
-    }
-
-    public void setSerieId(int serieId) {
-        this.serieId = serieId;
     }
 
     public int getSeasonId() {

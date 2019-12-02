@@ -18,7 +18,7 @@ public class User {
 	public User(ResultSet result) throws SQLException {
 		this.id = result.getInt("id");
 		this.userName = result.getString("name");
-		this.pictureUrl = result.getString("pictures");
+		this.pictureUrl = result.getString("picture");
 	}
 
 	public User() {

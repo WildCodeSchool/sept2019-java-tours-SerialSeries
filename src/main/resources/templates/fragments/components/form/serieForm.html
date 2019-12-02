@@ -9,10 +9,9 @@
 <form action="#" th:action="@{'/user/'+${currentUser.id}+'/serie/create'}" th:object="${createdSerie}" method="post" th:fragment="serieForm" class="form">
     <p th:if="${#fields.hasErrors('title')}" th:errors="*{title}"/>
     <label for="title" class="label_form">The title:</label>
-    <input type="text" th:field="*{title}" placeholder="Title" name="title" required/>
-    <p th:if="${#fields.hasErrors('nbSeason')}" th:errors="*{nbSeason}"/>
-    <label for="number" class="label_form">The season's number:</label>
-    <input type="number" th:field="*{nbSeason}" placeholder="Season's number" name="number" required min="1"/>
+    <input id="title" type="text" th:field="*{title}" placeholder="Title" name="title" required/>
+    <label for="url" class="label_form">URL of the serie's picture:</label>
+    <input type="text" th:field="*{pictureURL}" placeholder="URL" name="url" required/>
     <input type="submit" value="Submit" class="button">
 </form>
 </body>

@@ -50,16 +50,16 @@ public class UserRepository {
     /**
      * This method create a User in the database
      */
-    public void createUser(String name, String pictures) {
+    public void createUser(String name, String picture) {
         try {
             Connection connection = Database.getInstance().getConnection();
 
             PreparedStatement statement = connection.prepareStatement(
-                    "INSERT INTO User(name,pictures) VALUES (?,?)"
+                    "INSERT INTO User(name,picture) VALUES (?,?)"
             );
 
             statement.setString(1,name);
-            statement.setString(2,pictures);
+            statement.setString(2,picture);
             statement.executeUpdate();
 
         } catch (

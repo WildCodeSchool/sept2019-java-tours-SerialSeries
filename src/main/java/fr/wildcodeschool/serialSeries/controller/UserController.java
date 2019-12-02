@@ -42,7 +42,7 @@ public class UserController {
     //Process season Episode Form
     @PostMapping("/{id}/season/{seasonId}/episode/create")
     public String createEpisode(@PathVariable int id, @PathVariable int seasonId, @ModelAttribute("createdEpisode") @Valid EpisodeForm episodeForm,  BindingResult bindingResult, Model model) {
-        EpisodeRepository.getInstance().createEpisode(episodeForm.getTitle(), id, episodeForm.getNumber(), false, seasonId, SeasonRepository.getInstance().getSeasonBySeasonId(seasonId).getSerieId());
+        EpisodeRepository.getInstance().createEpisode(episodeForm.getTitle(),episodeForm.getNumber(), false, seasonId);
         if(bindingResult.hasErrors()) {
             model.addAttribute("currentUser", UserRepository.getInstance().getUsersById(id));
             model.addAttribute("currentSeason", SeasonRepository.getInstance().getSeasonBySeasonId(seasonId));
@@ -84,7 +84,7 @@ public class UserController {
 	//Process série creation Form
 	@PostMapping("/{id}/serie/create")
 	public String createSerie(@PathVariable int id, @ModelAttribute("createdSerie") @Valid SerieForm createdSerie,BindingResult bindingResult, Model model) {
-	    SerieRepository.getInstance().createSerie(createdSerie.getTitle(), createdSerie.getNbSeason(), id);
+	    SerieRepository.getInstance().createSerie(createdSerie.getTitle(), id,createdSerie.getPictureURL());
 	    if(bindingResult.hasErrors()) {
 	        model.addAttribute("currentUser", UserRepository.getInstance().getUsersById(id));
 	        model.addAttribute("serieList", SerieRepository.getInstance().getSerieByUserId(id));
@@ -99,7 +99,7 @@ public class UserController {
         model.addAttribute("currentUser", UserRepository.getInstance().getUsersById(id));
         model.addAttribute("userList", UserRepository.getInstance().getUsers());
         
-        List<Serie> series = SerieRepository.getInstance().getSerieByUserId(id);
+        List<Serie> series = SerieRepository.getInstance().getUserSeriesByUserId(id);
         model.addAttribute("serieList", series);
        
         List<Season> seasons = new ArrayList<>();
@@ -124,6 +124,7 @@ public class UserController {
     	if(bindingResult.hasErrors()) {
     		return "userCreator";
     	}
+    	UserRepository.getInstance().createUser(userForm.getUserName(), userForm.getPictureUrl());
 	    return "redirect:/";
     }
 
