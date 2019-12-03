@@ -18,6 +18,7 @@ import java.util.List;
 public class EpisodeRepository {
 	
     private static EpisodeRepository instance;
+    
 
     public static EpisodeRepository getInstance() {
         return instance == null ? new EpisodeRepository(): instance;
@@ -34,7 +35,6 @@ public class EpisodeRepository {
             PreparedStatement statement = connection.prepareStatement(
                     "SELECT * FROM Episode WHERE season_id=? ORDER BY episode_numb"
             );
-
             statement.setInt(1, id);
             List<Episode>  episodes = new ArrayList<Episode>();
             ResultSet resultSet = statement.executeQuery();
@@ -46,6 +46,42 @@ public class EpisodeRepository {
             e.printStackTrace();
         }
         return null;
+    }
+    public boolean getState(int id) {
+        try {
+            Connection connection = Database.getInstance().getConnection();
+
+            PreparedStatement statement = connection.prepareStatement(
+                    "SELECT vue FROM Episode WHERE Episode.id=?"
+            );
+            statement.setInt(1, id);
+            ResultSet resultSet = statement.executeQuery();
+            if (resultSet.next())
+            	return resultSet.getBoolean("vue");
+            return false;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+    //Change state seen/not seen from episode Id
+    public void swapState(int id, boolean state) {
+    	try {
+            Connection connection = Database.getInstance().getConnection();
+
+            PreparedStatement statement = connection.prepareStatement(
+                    "UPDATE Episode set vue=? WHERE Episode.id=?"
+            );
+
+            statement.setBoolean(1,state);
+            statement.setInt(2,id);
+
+
+            statement.executeUpdate();
+        } catch (
+                SQLException e) {
+            e.printStackTrace();
+        }
     }
     
     //Create Episode in Database
@@ -70,4 +106,5 @@ public class EpisodeRepository {
             e.printStackTrace();
         }
     }
+
 }

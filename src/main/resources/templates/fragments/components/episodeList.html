@@ -5,11 +5,10 @@
 <ul th:fragment="episodeList">
     <li th:each="episode : ${episodeList}" th:if="${episode.seasonId == season.id}">
         <h3 th:text= "|${episode.number} - ${episode.title}|"></h3>
-        <a th:if="${episode.vue}" class="vu">Vu</a>
-        <a th:if="${not episode.vue}" class="pas_vu">Pas Vu</a>
-        
-        
+        <a th:if="${episode.vue}" class="vu" th:href="@{'/user/'+${currentUser.id}+'/season/'+${episode.seasonId}+'/episode/'+${episode.id}}">Vu</a>
+        <a th:if="${not episode.vue}" class="pas_vu" th:href="@{'/user/'+${currentUser.id}+'/season/'+${episode.seasonId}+'/episode/'+${episode.id}}">Pas Vu</a>
     </li>
 </ul>
 </body>
 </html>
+

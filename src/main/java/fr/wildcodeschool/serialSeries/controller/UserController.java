@@ -30,6 +30,15 @@ import fr.wildcodeschool.serialSeries.repository.UserRepository;
 @RequestMapping("/user")
 public class UserController {
 	
+	//Redirect to the same page when seen statement is changing
+	@GetMapping("/{id}/season/{seasonId}/episode/{episodeId}")
+	public String swapState(@PathVariable int id,@PathVariable int seasonId,@PathVariable int episodeId, Model model) {
+		boolean state = EpisodeRepository.getInstance().getState(episodeId);
+		EpisodeRepository.getInstance().swapState(episodeId, !state);
+		return "redirect:/user/{id}";
+	}
+	
+	
 	//Display creation Episode Form
     @GetMapping("/{id}/season/{seasonId}/episode/create")
     public String createEpisode(@PathVariable int id, @PathVariable int seasonId, Model model) {
@@ -98,7 +107,6 @@ public class UserController {
     public String getAll(@PathVariable int id, Model model) {
         model.addAttribute("currentUser", UserRepository.getInstance().getUsersById(id));
         model.addAttribute("userList", UserRepository.getInstance().getUsers());
-
         List<Serie> series = SerieRepository.getInstance().getSerieByUserId(id);
         model.addAttribute("serieList", series);
 
