@@ -35,6 +35,9 @@
             </div>
             </li>
         </ul>
+        <div th:if="${currentUser.id!=0}" class="addSerie">
+			<a th:href="@{'/user/'+${currentUser.id} +'/serie/create'}" style="color:white">+ Add serie</a>
+    	</div>
     </nav>
 </body>
 </html>

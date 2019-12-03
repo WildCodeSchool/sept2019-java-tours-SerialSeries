@@ -58,13 +58,21 @@ h6{
     text-align: center;
     margin: auto;
     color: white;
-    font-size: 4em;
+    font-size: 2rem;
     padding: 35px 0 35px 0;
     margin-top: 2%;
     font-style: italic;
 }
 
+#addEpisode{
+	display: flex;
+    width: 20%;
+    position: absolute;
+    bottom: 0;
+    right: 50%;
+    transform: translate(50%,0);
 
+}
 
 .addSeason{
 	display: flex;
@@ -73,7 +81,6 @@ h6{
     background-color: grey;
     color: black;
     bottom: 0;
-    height: 1.5em;
     align-items: center;
 }
 
@@ -297,11 +304,17 @@ h6{
 }
 
 .addSerie{
-    height: 3em;
-    background-color: var(--surface-color);
-    text-align:center;
-    padding: 5px;
-    margin-top:1%; 
+    position: absolute;
+    left: 50%;
+    font-size: 3rem;
+    color: white;
+    transform: translate(-50%, 100%);
+    bottom: 0;
+    z-index: 10;
+    background-color: var(--hoversurface-color);
+    padding: 26px;
+    border-bottom-left-radius: 50%;
+    border-bottom-right-radius: 50%; 
 }
 
 html

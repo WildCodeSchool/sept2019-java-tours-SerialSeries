@@ -5,9 +5,7 @@
 <section th:fragment="serieList">
 
 	<div class="cadreSerie">
-		<div th:if="${currentUser.id!=0}" class="addSerie">
-			<a th:href="@{'/user/'+${currentUser.id} +'/serie/create'}" style="font-size: 3em; color:white">+ Add serie</a>
-    	</div>
+		
 		<ul style="    width: 100%;">
 			
 		    <li th:each="serie : ${serieList}">

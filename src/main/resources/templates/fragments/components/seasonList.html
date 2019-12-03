@@ -6,7 +6,7 @@
 <ul th:fragment="seasonList">
     <li th:each="season, index : ${seasonList}" th:if="${season.serieId == serie.id}" th:class="${index.first}? 'seasonList':'seasonList hide'" th:id="@{'season-'+${season.id}}">
         <ul th:include="fragments/components/episodeList::episodeList" ></ul>
-        <a th:href="@{'/user/'+${currentUser.id} +'/season/'+ ${season.id}+'/episode/create'}" style="display:flex; flex-direction: row-reverse;"><img src="https://www.icone-png.com/png/30/29948.png" style="display:flex; width:30%;"></a>
+        <a th:href="@{'/user/'+${currentUser.id} +'/season/'+ ${season.id}+'/episode/create'}" style="display:flex; flex-direction: row-reverse;"><img src="https://www.icone-png.com/png/30/29948.png" id="addEpisode"></a>
         
     </li>
 
