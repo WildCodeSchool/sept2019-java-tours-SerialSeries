@@ -3,6 +3,8 @@ package fr.wildcodeschool.serialSeries.entity;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  *  This class is used as database model of a Season
@@ -11,12 +13,12 @@ public class Season {
     private int id;
     private int number;
     private int serieId;
-    private ArrayList<Episode> episodeList;
-    public ArrayList<Episode> getEpisodeList() {
+    private Map<Integer, Episode> episodeList;
+    public Map<Integer, Episode> getEpisodeList() {
 		return episodeList;
 	}
 
-	public void setEpisodeList(ArrayList<Episode> episodeList) {
+	public void setEpisodeList(Map<Integer, Episode>  episodeList) {
 		this.episodeList = episodeList;
 	}
 
@@ -29,14 +31,14 @@ public class Season {
 	}
 
 	public Season(ResultSet resultSet) throws SQLException {
-		this.episodeList = new ArrayList<>();
+		this.episodeList = new HashMap<>();
 		this.id = resultSet.getInt("id");
         this.number = resultSet.getInt("number");
         this.serieId = resultSet.getInt("serie_id");
     }
 
     public Season() {
-		this.episodeList = new ArrayList<>();
+		this.episodeList = new HashMap<>();
 
 		// TODO Auto-generated constructor stub
 	}
@@ -59,7 +61,7 @@ public class Season {
     }
     
 	public void addEpisode(Episode episode) {
-		this.episodeList.add(episode);
+		this.episodeList.put(episode.getId(), episode);
 	}
 }
 

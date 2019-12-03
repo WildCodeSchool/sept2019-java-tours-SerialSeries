@@ -4,8 +4,7 @@
 <body>
 <ul th:fragment="episodeList">
   	<li th:each="episode : ${episodeList}" th:if="${episode.seasonId == season.id}">
-  		<h4 th:text="|Episode n° ${episode.number}|"></h4>
-  		<h5 th:text= "${episode.title}"></h5>
+  		<h4 th:text="|E${episode.number} - ${episode.title}|"></h4>
   	</li>
 
 </ul>

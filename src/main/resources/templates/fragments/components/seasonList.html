@@ -4,13 +4,12 @@
 <body>
 
 <ul th:fragment="seasonList">
-    <li th:each="season : ${seasonList}" th:if="${season.serieId == serie.id}">
-	    <a th:href="@{'/user/'+${currentUser.id} +'/season/'+ ${season.id}+'/episode/create'}"><img src="https://www.icone-png.com/png/30/29948.png" style="display:flex; width:30%;"></a>
-        <ul th:include="fragments/components/episodeList::episodeList"></ul>
+    <li th:each="season, index : ${seasonList}" th:if="${season.serieId == serie.id}" th:class="${index.first}? 'seasonList':'seasonList hide'" th:id="@{'season-'+${season.id}}">
+        <ul th:include="fragments/components/episodeList::episodeList" ></ul>
+        <a th:href="@{'/user/'+${currentUser.id} +'/season/'+ ${season.id}+'/episode/create'}" style="display:flex; flex-direction: row-reverse;"><img src="https://www.icone-png.com/png/30/29948.png" style="display:flex; width:30%;"></a>
+        
     </li>
-    <li>
-    	<a th:href="@{'/user/'+${currentUser.id} +'/season/'+ ${serie.id}+'/create'}" class="addSeason">Add a season</a>			        
-    </li>
+
 </ul>
 </body>
 </html>

@@ -99,7 +99,7 @@ public class UserController {
         model.addAttribute("currentUser", UserRepository.getInstance().getUsersById(id));
         model.addAttribute("userList", UserRepository.getInstance().getUsers());
         
-        List<Serie> series = SerieRepository.getInstance().getUserSeriesByUserId(id);
+        List<Serie> series = SerieRepository.getInstance().getSerieByUserId(id);
         model.addAttribute("serieList", series);
        
         List<Season> seasons = new ArrayList<>();
