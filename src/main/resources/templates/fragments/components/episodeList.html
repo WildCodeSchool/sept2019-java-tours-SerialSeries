@@ -3,10 +3,14 @@
 
 <body>
 <ul th:fragment="episodeList">
-  	<li th:each="episode : ${episodeList}" th:if="${episode.seasonId == season.id}">
-  		<h4 th:text="|E${episode.number} - ${episode.title}|"></h4>
-  	</li>
-
+    <li th:each="episode : ${episodeList}" th:if="${episode.seasonId == season.id}" style="display:flex;align-items:center;">
+        <h3 th:text= "|${episode.number} - ${episode.title}|"></h3>
+        <a class="vu" th:href="@{'/user/'+${currentUser.id}+'/season/'+${episode.seasonId}+'/episode/'+${episode.id}}">
+        	<img th:src="@{${episode.seen}? '/open_eye.png': '/closed_eye.png'}">
+        
+        </a>
+       	</li>
 </ul>
 </body>
 </html>
+

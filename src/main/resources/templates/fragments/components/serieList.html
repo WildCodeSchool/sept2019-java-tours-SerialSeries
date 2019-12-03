@@ -8,7 +8,7 @@
 		
 		<ul style="    width: 100%;">
 			
-		    <li th:each="serie : ${serieList}">
+		    <li th:each="serie,indexBut : ${serieList}">
 				<ul id="slider_serie">
 					<li>
 					<img th:src="${serie.pictureURL}"  class="img_slider">
@@ -21,7 +21,7 @@
 			    <div >
 				    <div class="cadre_nom_season">
 				    <a th:href="@{'/user/'+${currentUser.id} +'/season/'+ ${serie.id}+'/create'}" class="addSeason" >+</a>
-				    	<a th:each="season, indexBut : ${seasonList}" th:if="${season.serieId == serie.id}" th:class="${indexBut.first}? 'seasonButton selected':'seasonButton'" th:id="@{'seasonButton-'+${season.id}}"th:onclick="@{'seasonClick('+${season.id}+')'}" th:text="|S${season.number}|"></a>
+				    	<a th:each="season : ${seasonList}" th:if="${season.serieId == serie.id}" th:class="${indexBut.first}? 'seasonButton selected':'seasonButton'" th:id="@{'seasonButton-'+${season.id}}"th:onclick="@{'seasonClick('+${season.id}+')'}" th:text="|S${season.number}|"></a>
 				    </div>
 				    <div class="cadre_nom_episode">
 				        <ul th:include="fragments/components/seasonList::seasonList" style="overflow: scroll;padding-bottom: 5%;" ></ul>
