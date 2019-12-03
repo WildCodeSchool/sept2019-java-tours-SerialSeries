@@ -1,6 +1,5 @@
 package fr.wildcodeschool.serialSeries.entity.form;
 
-
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -45,3 +44,4 @@ public class EpisodeForm {
         this.number = number;
     }
 }
+

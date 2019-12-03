@@ -13,7 +13,7 @@ import fr.wildcodeschool.serialSeries.entity.User;
  * All request used with the database on User TABLE
  */
 public class UserRepository {
-	
+
     private static UserRepository instance;
 
     public static UserRepository getInstance() {
@@ -44,23 +44,24 @@ public class UserRepository {
             e.printStackTrace();
         }
         return null;
-
     }
+
     
     /**
      * This method create a User in the database
      */
-    public void createUser(String name, String pictures) {
+    public void createUser(String name, String picture) {
         try {
             Connection connection = Database.getInstance().getConnection();
 
             PreparedStatement statement = connection.prepareStatement(
-                    "INSERT INTO User(name,pictures) VALUES (?,?)"
+                    "INSERT INTO User(name,picture) VALUES (?,?)"
             );
 
             statement.setString(1,name);
-            statement.setString(2,pictures);
+            statement.setString(2,picture);
             statement.executeUpdate();
+
         } catch (
                 SQLException e) {
             e.printStackTrace();
@@ -88,3 +89,4 @@ public class UserRepository {
         return null;
     }
 }
+

@@ -1,6 +1,5 @@
 package fr.wildcodeschool.serialSeries.repository;
 
-
 import fr.wildcodeschool.serialSeries.entity.Season;
 import fr.wildcodeschool.serialSeries.entity.Serie;
 
@@ -46,7 +45,7 @@ public class SeasonRepository {
         }
         return null;
     }
-    
+
     // Create season in Database
     public void createSeason(int number, int serieId) {
         try {
@@ -69,6 +68,7 @@ public class SeasonRepository {
     
     // Get Season by ID in Database
     public Season getSeasonBySeasonId(int seasonId) {
+
         try {
             Connection connection = Database.getInstance().getConnection();
 
@@ -86,5 +86,6 @@ public class SeasonRepository {
             e.printStackTrace();
         }
         return null;
+
     }
 }

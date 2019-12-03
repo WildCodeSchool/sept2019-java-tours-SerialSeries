@@ -1,6 +1,5 @@
 package fr.wildcodeschool.serialSeries.entity.form;
 
-
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -12,24 +11,13 @@ import javax.validation.constraints.Size;
 public class SerieForm {
 
     @NotNull
-    @Min(value = 1, message="You can't create the season 0")
-    private int nbSeason;
-
-    @NotNull
     @Size(min = 3, max = 45, message="Your title can't contain less than 3 characters and more than 45")
     private String title;
 
     @NotNull
     @Min(value = 0)
     private int userId;
-
-    public int getNbSeason() {
-        return nbSeason;
-    }
-
-    public void setNbSeason(int nbSeason) {
-        this.nbSeason = nbSeason;
-    }
+    private String pictureURL;
 
     public String getTitle() {
         return title;
@@ -46,4 +34,13 @@ public class SerieForm {
     public void setUserId(int userId) {
         this.userId = userId;
     }
+
+	public String getPictureURL() {
+		return pictureURL;
+	}
+	
+	public void setPictureURL(String pictureURL) {
+		this.pictureURL = pictureURL;
+	}
 }
+

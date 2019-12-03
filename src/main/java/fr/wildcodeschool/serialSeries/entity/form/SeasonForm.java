@@ -1,5 +1,6 @@
 package fr.wildcodeschool.serialSeries.entity.form;
 
+
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 /**

@@ -5,10 +5,14 @@
     <title>Title</title>
 </head>
 <body>
-<form action="#" th:action="@{/user/create}" th:object="${createdUser}" method="post" th:fragment="userForm">
-    <input type="text" th:field="*{userName}" placeholder="Entrez un nom" required/>
-    <input type="text" th:field="*{pictureUrl}" placeholder="Entrez une url pour votre image" required/>
-    <input type="submit" value="Valider">
+<form action="#" th:action="@{/user/create}" th:object="${createdUser}" method="post" th:fragment="userForm"  class="form">
+    <p th:if="${#fields.hasErrors('userName')}" th:errors="*{userName}"/>
+    <label for="username" class="label_form">Your username:</label>
+    <input type="text" th:field="*{userName}" placeholder="User name" name="username" required/>
+    <p th:if="${#fields.hasErrors('pictureUrl')}" th:errors="*{pictureUrl}"/>
+    <label for="url" class="label_form">URL of your user picture:</label>
+    <input type="text" th:field="*{pictureUrl}" placeholder="URL" name="url" required/>
+    <input type="submit" value="Submit" class="button">
 </form>
 </body>
 </html>

@@ -6,12 +6,13 @@
 </head>
 <body>
 
-<form action="#" th:action="@{'/user/'+${currentUser.id}+'/serie/create'}" th:object="${createdSerie}" method="post" th:fragment="serieForm">
+<form action="#" th:action="@{'/user/'+${currentUser.id}+'/serie/create'}" th:object="${createdSerie}" method="post" th:fragment="serieForm" class="form">
     <p th:if="${#fields.hasErrors('title')}" th:errors="*{title}"/>
-    <input type="text" th:field="*{title}" placeholder="Entrez un titre" name="title"/>
-    <p th:if="${#fields.hasErrors('nbSeason')}" th:errors="*{nbSeason}"/>
-    <input type="number" th:field="*{nbSeason}" placeholder="Nombre de saison"/>
-    <input type="submit" value="Valider">
+    <label for="title" class="label_form">The title:</label>
+    <input id="title" type="text" th:field="*{title}" placeholder="Title" name="title" required/>
+    <label for="url" class="label_form">URL of the serie's picture:</label>
+    <input type="text" th:field="*{pictureURL}" placeholder="URL" name="url" required/>
+    <input type="submit" value="Submit" class="button">
 </form>
 </body>
 </html>

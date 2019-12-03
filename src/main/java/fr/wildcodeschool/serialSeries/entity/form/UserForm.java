@@ -33,6 +33,5 @@ public class UserForm {
     public void setPictureUrl(String pictureUrl) {
         this.pictureUrl = pictureUrl;
     }
-
-
 }
+

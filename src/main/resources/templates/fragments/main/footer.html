@@ -1,10 +1,19 @@
-
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www/thymeleaf.org">
 <body>
-<footer th:fragment="footer">
-    Ceci est le footer
-
-</footer>
+    <footer th:fragment="footer">
+        <script>
+			var season = document.getElementsByClassName("season");
+			for (let e of season){
+			 e.addEventListener("click", ()=>{
+			  console.log(e.childNodes);
+			
+			  for(let child of e.childNodes){
+				  console.log(child);
+			  }
+			 });
+			}
+		</script>
+	</footer>
 </body>
 </html>
