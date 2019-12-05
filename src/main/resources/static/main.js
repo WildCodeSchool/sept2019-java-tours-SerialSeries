@@ -2,8 +2,8 @@ function onUserListClick(){
 	let userList = document.getElementById("userList");
 	let currentUser = document.getElementById("currentUser");
 	let addSerieButton = document.getElementById("addSerieButton");
-
-	addSerieButton.classList.toggle("hide");
+	if(addSerieButton)
+		addSerieButton.classList.toggle("hide");
 	userList.classList.toggle("hide");
 	
 	currentUser.classList.toggle("hide");
