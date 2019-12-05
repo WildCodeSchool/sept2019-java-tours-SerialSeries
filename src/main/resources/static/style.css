@@ -33,7 +33,8 @@ h2{
 }
 h3{
 	width:100%;
-	font-size:1.17em;
+	font-size:0.7em;
+	padding-right: 7%;
 }
 h4{
 	font-size:1em;
@@ -52,7 +53,13 @@ h6{
 	background-color:grey;
 }
 
-
+#up_arrow{
+	position: absolute;
+    bottom: 0;
+    z-index: 3;
+    width: 7rem;
+    left: 0;
+}
 #presentation{
 	width: 95%;
     display: flex;
@@ -95,12 +102,12 @@ h6{
 	margin:0;
 }
 .hide{
-	display: none 	!important;	
+	display: none !important;	
 }
 #en_tete
 {
 	padding: 0.2em;
-	position:relative;
+	position:absolute;
 	display:flex;
 	width: 100%;
 	flex-direction: column;
@@ -109,6 +116,9 @@ h6{
 	background-color: var(--hoversurface-color);
 	font-size: 3em;
 	color:white;
+	top:0;
+	z-index:10;
+	height: 13rem;
 }
 
 #userList{
@@ -116,6 +126,7 @@ h6{
 	justify-content:flex-start;	
     overflow: scroll;
 	width:100%;
+	font-size:2.5rem;
 }
 #userList li{
 	display:flex;
@@ -123,10 +134,11 @@ h6{
 	align-items:center;
 	flex-direction:column;
 	padding: 0 0.1em;
+	padding: 0 3%;
 }
 #en_tete #userListIcon{
 	position: absolute;
-    right: 0;
+    right: 20px;
     top: 25%;
     width: 2em;
     border: 3px solid black;
@@ -189,6 +201,7 @@ h6{
 	overflow: scroll;
 	width:85%;
 	max-width:85%;
+	margin-top: 18rem;
 }
 #slider_serie
 {
@@ -235,7 +248,7 @@ h6{
     align-items: center;
     margin: auto;
     height: 30rem;
-    
+    width: 340px;
 }
 
 .season>ul{
@@ -256,7 +269,7 @@ h6{
 }
 
 .cadre_nom_season a{
-	min-width: 30%;
+	min-width: 28%;
 	padding:10px 0px;
     font-size: 3rem;
     align-self: center;
@@ -338,4 +351,216 @@ html
 .vu{
 	align-items: center;
     display: flex;
+}
+
+#addSerieButton{
+	color:white;
+}
+
+.title_ul{
+	width:90%;
+}
+
+
+/*-------------------------------------*/
+//modifs HTML
+#image_serie_selectionnee
+{
+	display: none;
+}
+#addSerieButton.addSerieBt.hide{
+	display:block !important;
+}
+	#addSerieButton.addSerieBt a{
+	color:white;	
+	}
+@media screen and (min-width: 1400px)
+{
+	#addSerieButton.addSerieBt a{
+				color:transparent;
+		
+	}
+	#addSerieButton.addSerieBt.hide{
+		display:none !important;
+	}
+	
+	#index{
+	flex-direction: column;
+    width: 80%;
+    left:5rem;
+    position: relative;
+	}
+	
+	#en_tete {
+		max-width: 10%;
+	    flex-direction: column;
+	    height: 100%;
+	    top: 0;
+	    position: fixed;
+	    left: 0;
+	    z-index: 10;
+	}
+	
+	#en_tete h3{
+		font-size: 2rem;
+	}
+	
+	#en_tete #userListIcon {
+	    position: absolute;
+	    right: 0px;
+	    bottom: 0;
+	    width: 2em;
+	    border: 3px solid black;
+	    border-radius: 50%;
+	    background-color: white;
+	    left: 15%;
+	    top: 45rem;
+	}	
+	
+	#en_tete #currentUser {
+	    width: 3em;
+	    display: flex;
+	    flex-direction: column;
+	    align-items: center;
+	    position: absolute;
+	    top: 3rem;
+	}	
+	
+	
+	#userList{
+		flex-direction:column;
+	}
+	
+	#userList h3{
+		font-size: 2rem;
+	}
+	
+	.hashtag{
+		font-size: 2rem;
+	}
+	
+	#userList li{
+		padding: 2% 3%;	
+	}
+	
+	.addSerie {
+		transform: translate(0, 0);
+		top: 0;
+	    font-size: 1.5rem;
+	    bottom:auto;
+	    left: auto;
+	    bottom: auto;
+	    position:relative;
+	    background-image: url(/addSerie.png);
+	    background-size: cover;
+	    background-position: center;
+	    border-radius: 0;
+	    width: 50%;
+	    height: 7%;
+	}
+	
+	.seenState{
+		width: 50%;
+	}
+	
+	.img_slider {
+	    top: 200px;
+	    height: 30rem;
+	    position: absolute;
+	    width: 340px;
+	}
+
+	.cadreSerie {
+
+    	position: relative;
+	}
+	
+	#addEpisode {
+	    display: flex;
+	    width: 5%;
+	    position: absolute;
+	    bottom: 0;
+	    right: 0;
+	    transform: translate(0,0);
+	}
+	
+	.title_ul {
+		width:70%;
+		padding-right: 1rem;
+	}
+	
+	.seasonList {
+		justify-content: flex-end;
+    
+	}
+	
+	.block_serie{
+		padding-top: 2rem;
+		padding: 1rem;
+	    background-color: var(--surface-color);
+	    margin-top: 5rem;
+	}
+	
+	.cadre_nom_season a{
+	color: var(--primary-color);
+    background-color: var(--bg-color);
+	}
+	
+	.cadre_nom_season{
+		background-color: #575658;
+	}
+	
+	body
+	{
+		display: flex;
+		flex-direction: row;
+		height:auto;
+	}
+
+	.form{
+		bottom: 30%;
+	    position: absolute;
+	    background-color: var(--surface-color);
+	    padding: 3rem;
+	}
+	
+	#slider_serie
+	{
+		position: absolute;
+		z-index: 3;
+	}
+	#content
+	{
+		display: flex;
+		transform: translateX(6%);
+		margin:0;
+	}
+	
+	#image_serie_selectionnee
+	{
+		display:inline-block;
+		width: 40%;
+	}
+	#cadre_nom_serie
+	{
+		width:100%;
+		display: flex;
+		flex-direction: row;
+	}
+	#image_milieu
+	{
+		flex-wrap: wrap;
+	}
+	.paragraphe_cadre_test
+	{
+		display: none;
+	}
+	
+	#addSerieButton{
+		color:transparent;
+	}
+	
+	#up_arrow{
+	display:none;
+	}
 }

@@ -6,7 +6,7 @@
 <body>
 <form action="#" th:action="@{'/user/'+${currentUser.id} + '/season/'+${serieId}+'/create'}" th:object="${createdSeason}" method="post" th:fragment="seasonForm" class="form">
     <p th:if="${#fields.hasErrors('number')}" th:errors="*{number}"/>
-    <label for="number" class="label_form">The season's number:</label>
+    <label for="number" class="label_form">Which season would you add: </label>
     <input type="number" th:field="*{number}" placeholder="Season's number" name="number" required min="1"/>
     <input type="submit" value="Submit" class="button">
 </form>

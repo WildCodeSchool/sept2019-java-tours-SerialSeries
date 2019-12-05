@@ -14,29 +14,29 @@
         		</a>
         		<img id	="userListIcon" src="/users.svg" onclick="onUserListClick()"/>
 			</div>
-            <div style="display:flex;">
+            <div style="display:flex;font-size:2.5rem;">
               <h3 th:if="${currentUser.id!=0}" th:text="${currentUser.userName}"></h3>
         			<h6 th:if="${currentUser.id!=0}" th:text="@{'#'+ ${currentUser.id}}" class="hashtag"></h6>
-     
             </div>
          </div>
-        <ul id="userList"class='hide'>
+        <ul id="userList" class='hide'>
         	
         	<li>
         	    <a href="/user/create">
         		<img class="logo_utilisateur" src="https://cdn3.vectorstock.com/i/1000x1000/66/32/man-icon-male-add-user-person-profile-avatar-plus-vector-21206632.jpg"/>
         		</a>
         	</li>
+        	
             <li th:each="user : ${userList}" th:if="${currentUser.id!=user.id}">
                 <a  th:href="@{'/user/'+${user.id}}"><img class="logo_utilisateur" 	th:src="${user.pictureUrl}"/></a>
-            <div style="display:flex;">
-                <h3 th:text="${user.userName}"></h3>
-            	<h6 th:text="@{'#'+ ${user.id}}" class="hashtag"></h6>
-            </div>
+	            <div style="display:flex;font-size:2.5rem;">
+	                <h3 th:text="${user.userName}"></h3>
+	            	<h6 th:text="@{'#'+ ${user.id}}" class="hashtag"></h6>
+	            </div>
             </li>
         </ul>
-        <div th:if="${currentUser.id!=0}" class="addSerie">
-			<a th:href="@{'/user/'+${currentUser.id} +'/serie/create'}" style="color:white">+ Add serie</a>
+        <div th:if="${currentUser.id!=0}" id="addSerieButton" class="addSerie addSerieBt">
+			<a th:href="@{'/user/'+${currentUser.id} +'/serie/create'}"  >+ Add serie</a>
     	</div>
     </nav>
 </body>

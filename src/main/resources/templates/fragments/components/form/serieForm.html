@@ -6,7 +6,7 @@
 </head>
 <body>
 
-<form action="#" th:action="@{'/user/'+${currentUser.id}+'/serie/create'}" th:object="${createdSerie}" method="post" th:fragment="serieForm" class="form">
+<form action="#season-'+${season.id}" th:action="@{'/user/'+${currentUser.id}+'/serie/create'}" th:object="${createdSerie}" method="post" th:fragment="serieForm" class="form">
     <p th:if="${#fields.hasErrors('title')}" th:errors="*{title}"/>
     <label for="title" class="label_form">The title:</label>
     <input id="title" type="text" th:field="*{title}" placeholder="Title" name="title" required/>

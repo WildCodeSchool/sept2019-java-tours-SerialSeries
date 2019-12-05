@@ -23,7 +23,6 @@ public class Episode {
     }
 
     public Episode() {
-		// TODO Auto-generated constructor stub
 	}
 
 	public int getId() {
