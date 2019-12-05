@@ -1,0 +1,566 @@
+:root{
+	--bg-color: #2b2a29;
+	--surface-color: #252423;
+	--hoversurface-color: #1e1c1c;
+	--primary-color: #edea4c;
+	--secondary-color: #f2ef49;
+	--on-primary-color: white;
+	--on-secondary-color: black;
+	--sizeh1: 2em;
+}
+html{
+	height:100%;
+	font-family: 'Varela Round', sans-serif;
+	color:white;
+}
+*{
+	list-style:none;
+	text-decoration:none;
+}
+body{
+	display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+h1{
+	font-size:2em;
+}
+h2{
+	font-size:1.5em;
+}
+h3{
+	width:100%;
+	font-size:0.7em;
+	padding-right: 7%;
+}
+h4{
+	font-size:1em;
+}
+h5{
+	font-size:.83em;
+}
+h6{
+	font-size:.67em;
+}
+
+.label_form{
+	color:white;
+}
+.button{
+	background-color:grey;
+}
+
+#up_arrow{
+	position: absolute;
+    bottom: 0;
+    z-index: 3;
+    width: 7rem;
+    left: 0;
+}
+#presentation{
+	width: 95%;
+    display: flex;
+    text-align: center;
+    margin: auto;
+    color: white;
+    font-size: 2rem;
+    padding: 35px 0 35px 0;
+    margin-top: 2%;
+    font-style: italic;
+}
+
+#addEpisode{
+	display: flex;
+    width: 20%;
+    position: absolute;
+    bottom: 0;
+    right: 50%;
+    transform: translate(50%,0);
+
+}
+
+.addSeason{
+	display: flex;
+    justify-content: center;
+    text-decoration: none;
+    background-color: grey;
+    color: black;
+    bottom: 0;
+    align-items: center;
+}
+
+.hashtag{
+	font-size: 2.5rem;    
+	display: flex;
+    align-items: center;
+}
+
+#en_tete h1{
+	margin:0;
+}
+.hide{
+	display: none !important;	
+}
+#en_tete
+{
+	padding: 0.2em;
+	position:absolute;
+	display:flex;
+	width: 100%;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	background-color: var(--hoversurface-color);
+	font-size: 3em;
+	color:white;
+	top:0;
+	z-index:10;
+	height: 13rem;
+}
+
+#userList{
+	display:flex;
+	justify-content:flex-start;	
+    overflow: scroll;
+	width:100%;
+	font-size:2.5rem;
+}
+#userList li{
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	flex-direction:column;
+	padding: 0 0.1em;
+	padding: 0 3%;
+}
+#en_tete #userListIcon{
+	position: absolute;
+    right: 20px;
+    top: 25%;
+    width: 2em;
+    border: 3px solid black;
+    border-radius: 50%;
+    background-color: white;
+}
+
+#en_tete #currentUser	{
+	width:3em;
+	display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#en_tete h3{
+	padding:0;
+	margin:0;
+	}
+.logo_utilisateur
+{
+	border-radius: 50%;
+	height: 3em;
+    width: 3em;
+    object-fit: cover;
+}
+
+.div_form{
+	display:flex;
+	align-items:center;
+	justify-content:center;
+}
+
+.form{
+	display:flex;
+	justify-content:center;
+	flex-direction: column;
+	padding: 5px;
+	font-size:3em;
+	margin:auto;	
+}
+
+.form>input{
+	font-size:1em;
+	margin:2%;
+}
+
+.seasonStart{
+	display:flex;
+	justify-content:space-between;
+	padding: 3px;
+}
+.seasonStart>a{
+	display:flex;
+	justify-content: flex-end;
+}
+#content
+{
+	align-items: center;
+	justify-content: center;
+	overflow: scroll;
+	width:85%;
+	max-width:85%;
+	margin-top: 18rem;
+}
+#slider_serie
+{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	height: 600px;
+	
+}
+
+.cadre_nom_serie
+{
+	display: flex;
+	flex-direction: column;
+	margin-top: 90px;
+	align-items: center;
+	background-color: var(--surface-color);
+	margin: auto;
+	font-size:4em;
+	padding: 0.2em 0;
+    font-weight: bold;
+}
+
+.paragraphe_cadre
+{
+	font-size: 3em;
+}
+
+#bouton_ajout
+{
+	display: flex;
+	justify-content: center;
+
+	font-size: 3em;
+	background-color: var(--surface-color);
+	color: white;
+	width: 100%;
+}
+
+.img_slider{
+	display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    height: 30rem;
+    width: 340px;
+}
+
+.season>ul{
+	display:none;
+}
+
+.cadreSerie{
+	justify-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width:100%;
+}
+.cadre_nom_season{
+    display: flex;
+    justify-content: flex-start;
+    overflow: scroll;
+}
+
+.cadre_nom_season a{
+	min-width: 28%;
+	padding:10px 0px;
+    font-size: 3rem;
+    align-self: center;
+    text-align: center;
+}
+.cadre_nom_season a.selected{
+	background-color:var(--primary-color);
+	color:black;
+}
+
+.cadre_nom_episode
+{
+	background-color: var(--surface-color);
+    margin: auto;
+    height: 600px;
+    display: flex;
+    font-size: 4em;
+    overflow: scroll;
+    position: relative;
+    flex-direction: column;
+    padding-bottom: 1em;
+}
+
+.nom_episode
+{
+	font-size: 3em;
+	list-style: none;
+	padding: 10px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+
+}    
+
+.nom_episode input
+{
+	height:2em;
+	width: 2em;
+
+}
+
+#image_serie_selectionnee
+{
+	display: none;
+}
+
+.addSerie{
+    position: absolute;
+    left: 50%;
+    font-size: 3rem;
+    color: white;
+    transform: translate(-50%, 100%);
+    bottom: 0;
+    z-index: 10;
+    background-color: var(--hoversurface-color);
+    padding: 26px;
+    border-bottom-left-radius: 50%;
+    border-bottom-right-radius: 50%; 
+}
+
+html
+{
+	height:100%;
+	background-color: var(--bg-color);
+}
+
+.seasonList {
+	display:flex;
+	justify-content: center;
+    align-items: center;
+    
+}
+
+.seasonList .hide{
+	display:none;
+}
+
+.vu{
+	align-items: center;
+    display: flex;
+}
+
+#addSerieButton{
+	color:white;
+}
+
+.title_ul{
+	width:90%;
+}
+
+
+/*-------------------------------------*/
+//modifs HTML
+#image_serie_selectionnee
+{
+	display: none;
+}
+#addSerieButton.addSerieBt.hide{
+	display:block !important;
+}
+	#addSerieButton.addSerieBt a{
+	color:white;	
+	}
+@media screen and (min-width: 1400px)
+{
+	#addSerieButton.addSerieBt a{
+				color:transparent;
+		
+	}
+	#addSerieButton.addSerieBt.hide{
+		display:none !important;
+	}
+	
+	#index{
+	flex-direction: column;
+    width: 80%;
+    left:5rem;
+    position: relative;
+	}
+	
+	#en_tete {
+		max-width: 10%;
+	    flex-direction: column;
+	    height: 100%;
+	    top: 0;
+	    position: fixed;
+	    left: 0;
+	    z-index: 10;
+	}
+	
+	#en_tete h3{
+		font-size: 2rem;
+	}
+	
+	#en_tete #userListIcon {
+	    position: absolute;
+	    right: 0px;
+	    bottom: 0;
+	    width: 2em;
+	    border: 3px solid black;
+	    border-radius: 50%;
+	    background-color: white;
+	    left: 15%;
+	    top: 45rem;
+	}	
+	
+	#en_tete #currentUser {
+	    width: 3em;
+	    display: flex;
+	    flex-direction: column;
+	    align-items: center;
+	    position: absolute;
+	    top: 3rem;
+	}	
+	
+	
+	#userList{
+		flex-direction:column;
+	}
+	
+	#userList h3{
+		font-size: 2rem;
+	}
+	
+	.hashtag{
+		font-size: 2rem;
+	}
+	
+	#userList li{
+		padding: 2% 3%;	
+	}
+	
+	.addSerie {
+		transform: translate(0, 0);
+		top: 0;
+	    font-size: 1.5rem;
+	    bottom:auto;
+	    left: auto;
+	    bottom: auto;
+	    position:relative;
+	    background-image: url(/addSerie.png);
+	    background-size: cover;
+	    background-position: center;
+	    border-radius: 0;
+	    width: 50%;
+	    height: 7%;
+	}
+	
+	.seenState{
+		width: 50%;
+	}
+	
+	.img_slider {
+	    top: 200px;
+	    height: 30rem;
+	    position: absolute;
+	    width: 340px;
+	}
+
+	.cadreSerie {
+
+    	position: relative;
+	}
+	
+	#addEpisode {
+	    display: flex;
+	    width: 5%;
+	    position: absolute;
+	    bottom: 0;
+	    right: 0;
+	    transform: translate(0,0);
+	}
+	
+	.title_ul {
+		width:70%;
+		padding-right: 1rem;
+	}
+	
+	.seasonList {
+		justify-content: flex-end;
+    
+	}
+	
+	.block_serie{
+		padding-top: 2rem;
+		padding: 1rem;
+	    background-color: var(--surface-color);
+	    margin-top: 5rem;
+	}
+	
+	.cadre_nom_season a{
+	color: var(--primary-color);
+    background-color: var(--bg-color);
+	}
+	
+	.cadre_nom_season{
+		background-color: #575658;
+	}
+	
+	body
+	{
+		display: flex;
+		flex-direction: row;
+		height:auto;
+	}
+
+	.form{
+		bottom: 30%;
+	    position: absolute;
+	    background-color: var(--surface-color);
+	    padding: 3rem;
+	}
+	
+	#slider_serie
+	{
+		position: absolute;
+		z-index: 3;
+	}
+	#content
+	{
+		display: flex;
+		transform: translateX(6%);
+		margin:0;
+	}
+	
+	#image_serie_selectionnee
+	{
+		display:inline-block;
+		width: 40%;
+	}
+	#cadre_nom_serie
+	{
+		width:100%;
+		display: flex;
+		flex-direction: row;
+	}
+	#image_milieu
+	{
+		flex-wrap: wrap;
+	}
+	.paragraphe_cadre_test
+	{
+		display: none;
+	}
+	
+	#addSerieButton{
+		color:transparent;
+	}
+	
+	#up_arrow{
+	display:none;
+	}
+}

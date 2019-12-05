@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www/thymeleaf.org">
+
+<body>
+<section th:fragment="serieList">
+<a href="#top"><img src="/up_arrow.png" id="up_arrow"></a>
+	<div class="cadreSerie">
+	<span id="top"></span>	
+		<ul style="width: 100%;">
+			
+		    <li th:each="serie,indexBut : ${serieList}" class="block_serie">
+		    	<span th:id="'serie-'+${serie.id}"></span>
+				<ul id="slider_serie">
+					<li >
+					<img th:src="${serie.pictureURL}"  class="img_slider" >
+
+					</li>
+				</ul>
+				<div class="cadre_nom_serie">
+			        <a th:text="${serie.title}"></a>
+			    </div>
+			    <div >
+				    <div class="cadre_nom_season">
+				    <a th:href="@{'/user/'+${currentUser.id} +'/season/'+ ${serie.id}+'/create'}" class="addSeason" >+</a>
+				    	<a th:each="season : ${seasonList}" th:if="${season.serieId == serie.id}" th:class="${season.number==1}? 'seasonButton selected':'seasonButton'" th:id="@{'seasonButton-'+${season.id}}" th:onclick="@{'seasonClick('+${season.id}+')'}" th:text="|S${season.number}|"></a>
+				    </div>
+				    <div class="cadre_nom_episode">
+				        <ul th:include="fragments/components/seasonList::seasonList" style="overflow: scroll;padding-bottom: 5%;height: 78%;font-size:3rem;" ></ul>
+				    </div>
+				</div>
+		    </li>
+		</ul>
+	</div>
+</section>
+</body>
+</html>

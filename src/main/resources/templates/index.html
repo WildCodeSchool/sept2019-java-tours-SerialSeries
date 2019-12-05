@@ -1,0 +1,22 @@
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www/thymeleaf.org">
+<head th:replace="fragments/main/head::head"> </head>
+
+<body>
+
+<nav th:include="fragments/components/userList::userList" id="en_tete"></nav>
+<div id="index">
+	<img src="logo.png" style="width: 30%;
+	    display: flex;
+	    align-self: center;
+	    margin:auto;">
+	<p id="presentation">
+		Welcome to SerialSeries, the website that will remember for you your progression and allow you to binge-watch more and more series.
+		</br></br>To get started, all you need to do is create a profile and add your favorites series to your list.
+		</br></br>Besides, if you're looking for new series to watch, you can check other users's list to find the next ones !
+		</br></br>Other features are coming soon ...
+	</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www/thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="#" th:action="@{/user/create}" th:object="${createdUser}" method="post" th:fragment="userForm"  class="form">
+    <p th:if="${#fields.hasErrors('userName')}" th:errors="*{userName}"/>
+    <label for="username" class="label_form">Your username:</label>
+    <input type="text" th:field="*{userName}" placeholder="User name" name="username" required/>
+    <p th:if="${#fields.hasErrors('pictureUrl')}" th:errors="*{pictureUrl}"/>
+    <label for="url" class="label_form">URL of your user picture:</label>
+    <input type="text" th:field="*{pictureUrl}" placeholder="URL" name="url" required/>
+    <input type="submit" value="Submit" class="button">
+</form>
+</body>
+</html>

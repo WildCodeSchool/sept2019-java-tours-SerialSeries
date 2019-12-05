@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www/thymeleaf.org">
+<head th:replace="fragments/main/head::head"> </head>
+
+<body>
+
+
+
+<nav th:include="fragments/components/userList::userList" id="en_tete"></nav>
+<ul th:include="fragments/components/serieList::serieList" id="content"></ul>
+
+<footer th:replace="fragments/main/footer::footer"> </footer>
+</body>
+</html>
