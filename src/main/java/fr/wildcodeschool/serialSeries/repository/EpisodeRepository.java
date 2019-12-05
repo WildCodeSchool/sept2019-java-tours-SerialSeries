@@ -46,6 +46,10 @@ public class EpisodeRepository {
         }
         return null;
     }
+    /**
+     * This method get the view's state of an episode by the user
+     * @return boolean seen(true) or not seen(false)
+     */
     public boolean getState(int id) {
         try {
             Connection connection = Database.getInstance().getConnection();
@@ -63,6 +67,7 @@ public class EpisodeRepository {
         }
         return false;
     }
+    
     //Change state seen/not seen from episode Id
     public void swapState(int id, boolean state) {
     	try {

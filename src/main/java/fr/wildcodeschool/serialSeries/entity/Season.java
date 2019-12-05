@@ -39,8 +39,6 @@ public class Season {
 
     public Season() {
 		this.episodeList = new HashMap<>();
-
-		// TODO Auto-generated constructor stub
 	}
 
 

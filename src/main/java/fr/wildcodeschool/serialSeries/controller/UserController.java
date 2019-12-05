@@ -56,7 +56,7 @@ public class UserController {
             model.addAttribute("currentSeason", SeasonRepository.getInstance().getSeasonBySeasonId(seasonId));
             return"episodeCreator";
         }
-        return "redirect:/user/" + id;
+        return "redirect:/user/" + id + "#season-" + seasonId;
     }
 	//Display creation season Form
     @GetMapping("/{id}/season/{serieId}/create")
@@ -76,7 +76,7 @@ public class UserController {
             model.addAttribute("serieId", serieId);
             return"seasonCreator";
         }
-        return "redirect:/user/"+id;
+        return "redirect:/user/"+ id;
     }
 	
 	//Display creation série Form

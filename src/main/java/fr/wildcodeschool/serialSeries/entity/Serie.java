@@ -26,8 +26,6 @@ public class Serie {
 
 	public Serie() {
 		this.seasonList = new HashMap<>();
-
-		// TODO Auto-generated constructor stub
 	}
 
 	public Map<Integer, Season> getSeasonList() {
